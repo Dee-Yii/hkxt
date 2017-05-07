@@ -23,6 +23,7 @@ define([
         render: function () {
             this.initModal();
             this.fnGetList({},true);
+            this.initTopOrgList();
         },
 
         bindEvents: function () {
@@ -63,20 +64,55 @@ define([
             });
         },
 
+        initTopOrgList: function () {
+            var oSelect = $("select[name=orgTopLevel]");
+            var optionStr = "";
+            var data = {
+                pageNum: '',
+                page: ''
+            };
+            accountAPI.getTopOrgList(data, function (result) {
+                console.log('一级机构列表-调用成功');
+                $.each(result.list, function (i, v) {
+                    optionStr += '<option value="'+v.memberId+'">'+v.name+'</option>'
+                });
+                oSelect.html(optionStr);
+            });
+        },
+
         onAdd: function () {
             var confirmBtn = $(".addOrgModal .remodal-confirm");
+            var oForm = $(".addUserModal form");
+
+            var orgLevelSelect = oForm.find('[name=orgLevel]');
+            var orgTopSelect = oForm.find('[name=orgTopLevel]');
+            orgLevelSelect.on('change', function () {
+                var $this = $(this);
+                if($this.val() == 0){
+                    orgTopSelect.hide();
+                }else{
+                    orgTopSelect.show();
+                }
+            });
+
             confirmBtn.on("click", function (e) {
                 e.preventDefault();
-
                 var $this = $(this);
                 if ($this.hasClass("disabled")) return;
                 $this.addClass("disabled");
+                var data = {
+                    name: oForm.find('orgName').val(),
+                    mark: oForm.find('[name=username]').val(),
+                    superMemberid: oForm.find('[name=orgLevel]').val() == 0 ? 0 : oForm.find('[name=orgTopLevel]').val(),
+                    type: oForm.find('[name=nickname]').val(),
+                    tel: oForm.find('[name=phone]').val(),
+                    phone: oForm.find('[name=cellphone]').val()
+                };
 
                 // todo Validate
-                var data = {};
                 accountAPI.addOrg(data, function (result) {
                     console.log(result);
-
+                    layer.msg('添加成功');
                     addOrgModal.close();
                     $this.removeClass("disabled");
                 })

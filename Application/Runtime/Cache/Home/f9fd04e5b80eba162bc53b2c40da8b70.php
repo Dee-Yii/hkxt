@@ -37,10 +37,11 @@
                 </select>
                 <input name="orgName" type="text" placeholder="机构名称"><a href="javascript:;" class="btn J_search">查询</a>
             </div>
-            <div class="control-bar"><a href="javascript:;" class="btn J_showAdd">新建</a><a href="javascript:;"
-                                                                                           class="btn J_updateStatus open-i">启用</a><a
-                    href="javascript:;" class="btn J_updateStatus close-i">禁用</a><a href="javascript:;"
-                                                                                    class="btn J_onDel">删除</a></div>
+            <div class="control-bar">
+                <a href="javascript:;" class="btn J_showAdd">新建</a>
+                <a href="javascript:;" class="btn J_updateStatus open-i">启用</a>
+                <a href="javascript:;" class="btn J_updateStatus close-i">禁用</a>
+                <a href="javascript:;" class="btn J_onDel">删除</a></div>
             <div class="data-container">
                 <table>
                     <thead>
@@ -95,17 +96,23 @@
                 <div class="form-control">
                     <label>机构层级</label>
                     <select name="orgLevel">
-                        <option value="0">上层机构</option>
+                        <option value="0">一级机构</option>
                         <option value="1">二级机构</option>
+                    </select>
+                </div>
+                <div class="form-control hide">
+                    <label>所属一级机构</label>
+                    <select name="orgTopLevel">
+                        <option value="0">一级机构</option>
                     </select>
                 </div>
                 <div class="form-control">
                     <label>机构类型</label>
                     <select name="orgType">
                         <option value="0">航空</option>
-                        <option value="1">陆运</option>
-                        <option value="2">海运</option>
-                        <option value="3">其他</option>
+                        <!--<option value="1">陆运</option>-->
+                        <!--<option value="2">海运</option>-->
+                        <!--<option value="3">其他</option>-->
                     </select>
                 </div>
                 <div class="form-control">
