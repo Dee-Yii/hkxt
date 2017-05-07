@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ec3f7e2-c485-4fc7-b698-b2948dadeda7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/Controller/AgentController.class.php" afterPath="$PROJECT_DIR$/Application/Home/Controller/AgentController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/Controller/MemberController.class.php" afterPath="$PROJECT_DIR$/Application/Home/Controller/MemberController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Runtime/Logs/Home/17_05_07.log" afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Home/17_05_07.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/template/assets/js/libs/config.js" afterPath="$PROJECT_DIR$/Public/template/assets/js/libs/config.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/template/assets/js/page/orgManage.js" afterPath="$PROJECT_DIR$/Public/template/assets/js/page/orgManage.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -121,8 +119,8 @@
       <file leaf-file-name="orgManage.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Public/template/assets/js/page/orgManage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="582">
-              <caret line="265" column="65" selection-start-line="265" selection-start-column="65" selection-end-line="265" selection-end-column="65" />
+            <state relative-caret-position="703">
+              <caret line="262" column="68" selection-start-line="262" selection-start-column="64" selection-end-line="262" selection-end-column="68" />
               <folding>
                 <element signature="e#7#114#0" expanded="false" />
                 <element signature="e#467#536#0" expanded="false" />
@@ -172,23 +170,23 @@
                 <element signature="e#8270#8470#0" expanded="false" />
                 <element signature="e#8579#8621#0" expanded="false" />
                 <element signature="e#8969#9160#0" expanded="false" />
-                <element signature="e#10213#10830#0" expanded="false" />
-                <element signature="e#10309#10812#0" expanded="false" />
-                <element signature="e#10435#10789#0" expanded="false" />
-                <element signature="e#10576#10763#0" expanded="false" />
-                <element signature="e#10905#11229#0" expanded="false" />
-                <element signature="e#10998#11193#0" expanded="false" />
-                <element signature="e#11107#11179#0" expanded="false" />
+                <element signature="e#10249#10866#0" expanded="false" />
+                <element signature="e#10345#10848#0" expanded="false" />
+                <element signature="e#10471#10825#0" expanded="false" />
+                <element signature="e#10612#10799#0" expanded="false" />
+                <element signature="e#10941#11265#0" expanded="false" />
+                <element signature="e#11034#11229#0" expanded="false" />
+                <element signature="e#11143#11215#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
+              <caret line="0" column="20" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -204,11 +202,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="config.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Public/template/assets/js/libs/config.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
-              <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+              <caret line="14" column="15" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -259,8 +257,9 @@
         <option value="$PROJECT_DIR$/Public/template/assets/js/common.js" />
         <option value="$PROJECT_DIR$/Application/Home/View/accountManage/orgManage.html" />
         <option value="$PROJECT_DIR$/Public/template/assets/js/api/accountAPI.js" />
-        <option value="$PROJECT_DIR$/Public/template/assets/js/page/orgManage.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/Public/template/assets/js/libs/config.js" />
+        <option value="$PROJECT_DIR$/Public/template/assets/js/page/orgManage.js" />
       </list>
     </option>
   </component>
@@ -542,12 +541,12 @@
       <updated>1493870239080</updated>
       <workItem from="1493870241893" duration="6129000" />
       <workItem from="1493890887411" duration="1607000" />
-      <workItem from="1494133058993" duration="6105000" />
+      <workItem from="1494133058993" duration="7141000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13841000" />
+    <option name="totallyTimeSpent" value="14877000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="-148" width="1920" height="1080" extended-state="0" />
@@ -1060,18 +1059,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Public/template/assets/js/api/accountAPI.js">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="49" selection-start-line="29" selection-start-column="49" selection-end-line="29" selection-end-column="49" />
+        <state relative-caret-position="0">
+          <caret line="0" column="20" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Public/template/assets/js/libs/config.js">
+    <entry file="file://$PROJECT_DIR$/Public/template/assets/js/api/accountAPI.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+        <state relative-caret-position="493">
+          <caret line="29" column="49" selection-start-line="29" selection-start-column="49" selection-end-line="29" selection-end-column="49" />
           <folding />
         </state>
       </provider>
@@ -1086,8 +1085,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Public/template/assets/js/page/orgManage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="582">
-          <caret line="265" column="65" selection-start-line="265" selection-start-column="65" selection-end-line="265" selection-end-column="65" />
+        <state relative-caret-position="703">
+          <caret line="262" column="68" selection-start-line="262" selection-start-column="64" selection-end-line="262" selection-end-column="68" />
           <folding>
             <element signature="e#7#114#0" expanded="false" />
             <element signature="e#467#536#0" expanded="false" />
@@ -1137,21 +1136,21 @@
             <element signature="e#8270#8470#0" expanded="false" />
             <element signature="e#8579#8621#0" expanded="false" />
             <element signature="e#8969#9160#0" expanded="false" />
-            <element signature="e#10213#10830#0" expanded="false" />
-            <element signature="e#10309#10812#0" expanded="false" />
-            <element signature="e#10435#10789#0" expanded="false" />
-            <element signature="e#10576#10763#0" expanded="false" />
-            <element signature="e#10905#11229#0" expanded="false" />
-            <element signature="e#10998#11193#0" expanded="false" />
-            <element signature="e#11107#11179#0" expanded="false" />
+            <element signature="e#10249#10866#0" expanded="false" />
+            <element signature="e#10345#10848#0" expanded="false" />
+            <element signature="e#10471#10825#0" expanded="false" />
+            <element signature="e#10612#10799#0" expanded="false" />
+            <element signature="e#10941#11265#0" expanded="false" />
+            <element signature="e#11034#11229#0" expanded="false" />
+            <element signature="e#11143#11215#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/Public/template/assets/js/libs/config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
+        <state relative-caret-position="238">
+          <caret line="14" column="15" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="15" />
           <folding />
         </state>
       </provider>

@@ -261,13 +261,14 @@ define([
                     var codeTd      = '<td>' + v.mark + '</td>';
                     var orgNameTd   = '<td>' + v.name + '</td>';
                     var orgTypeTd   = '<td>' + config.orgType[v.type] + '</td>';
-                    var upLevelTd   = '<td>' + v.superMemberInfo + '</td>';
+                    var upLevelTd   = '<td>' + (v.superMemberInfo ? v.superMemberInfo.name : "") + '</td>';
                     var phoneTd     = '<td>' + v.tel + '</td>';
                     var cellphoneTd = '<td>' + v.phone + '</td>';
-                    var statusTd    = '<td>' + config.status[v.status] + '</td>';
+                    var statusTd    = '<td>' + config.orgStatus[v.status] + '</td>';
                     oTr += '<tr class="fadeIn animated" data-id="'+v.id+'">' + checkTd + codeTd + orgNameTd + orgTypeTd + upLevelTd + phoneTd + cellphoneTd + statusTd + controlTd + '</tr>';
                 });
                 table.find("tbody").empty().html(oTr);
+
 
                 if (initPage) {
                     var pageCount = result.totalPages;
