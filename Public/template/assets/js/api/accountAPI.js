@@ -51,7 +51,7 @@ define(["jquery"], function ($) {
          * 用户管理-启用
          */
         updateOrgStatus: function (data, cb) {
-            $.post(this.baseRequestUrl + "/adminuser/updateStatus", data, function (result) {
+            $.post(this.baseRequestUrl + "/member/updateStatus", data, function (result) {
                 cb(result);
             })
         },

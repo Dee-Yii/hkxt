@@ -54,12 +54,14 @@ define(["jquery", "config", "datepicker", "layer"], function ($, config) {
             });
         },
         getCheckedArr: function () {
-            var idArr = [];
-            var oInput = $(".data-container table tbody input[type=checkbox]:checked");
-            oInput.each(function (i, v) {
-                idArr.push($(this).val())
+            var arr = [];
+            $(".data-container table tbody tr").each(function () {
+                var $this = $(this);
+                if($this.find("input[type=checkbox]").prop("checked")){
+                    arr.push($this.attr('data-id'));
+                }
             });
-            return idArr;
+            return arr;
         },
         initClientInfo: function () {
             var userId = utils.getQuery('uid');

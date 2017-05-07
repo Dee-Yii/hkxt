@@ -29,11 +29,10 @@ define([
         bindEvents: function () {
             // this.onSelectAll();
             this.onAdd();
-            this.onOpen();
-            this.onClose();
-            this.onDel();
+            // this.onDel();
             this.onChange();
             this.onSearch();
+            this.onUpdateOrgStatus();
         },
 
         initModal: function () {
@@ -122,76 +121,32 @@ define([
         /**
          * 启用/禁用用户
          */
-        onUpdateUserStatus: function () {
+        onUpdateOrgStatus: function () {
             var _this = this;
             $(".J_updateStatus").on("click", function () {
-                var selectArr = _this.fnGetSelect();
-                if(!selectArr.length){
+                var idArr = utils.getCheckedArr();
+                if(!idArr.length){
                     layer.msg("请选择要操作的数据");
                     return;
                 }
                 var data={
-                    id: selectArr,
+                    id: idArr,
                     status: $(this).hasClass('open-i') ? 0 : 1
                 };
-
-                // *********
-                var text = data.status === 0 ? '启用成功' : '禁用成功';
-                _this.fnGetList({}, true);
-                layer.msg(text);
-                // *********
-
-                accountAPI.updateOrgStatus(data,function () {
+                accountAPI.updateOrgStatus(data,function (result) {
                     var text = data.status === 0 ? '启用成功' : '禁用成功';
-                    if(result.cade == 0){
+                    if(result.code == 0){
                         layer.msg(text);
-                        // _this.fnGetList({}, true);
-                        oInput.each(function () {
-                            $(this).parents("tr").find("td").eq(7).text(config.orgStatus[data.status])
-                        })
+                        _this.fnGetList({}, true);
+                        // oInput.each(function () {
+                        //     $(this).parents("tr").find("td").eq(7).text(config.orgStatus[data.status])
+                        // })
                     } else{
                         layer.msg("操作失败");
                     }
                 })
             })
 
-        },
-
-        onOpen: function () {
-            $(".J_showOpen").on("click", function () {
-                var idArr = utils.getCheckedArr();
-                if (idArr.length > 0) {
-                    layer.confirm('确定启用选中的列表项吗？', {icon: 3}, function (index) {
-                        accountAPI.openOrg(idArr, function (result) {
-                            oInput.each(function () {
-                                $(this).parents("tr").find("td").eq(7).text(config.orgStatus[1])
-                            })
-                        });
-                        layer.close(index)
-                    });
-
-                } else {
-                    layer.alert("请先选择要启用的列表项");
-                }
-            })
-        },
-
-        onClose: function () {
-            $(".J_showClose").on("click", function () {
-                var idArr = utils.getCheckedArr();
-                if (idArr.length > 0) {
-                    layer.confirm('确定禁用选中的列表项吗？', {icon: 3}, function (index) {
-                        accountAPI.closeOrg(idArr, function (result) {
-                            oInput.each(function () {
-                                $(this).parents("tr").find("td").eq(7).text(config.orgStatus[2])
-                            })
-                        });
-                        layer.close(index)
-                    });
-                } else {
-                    layer.alert("请先选择要禁用的列表项");
-                }
-            })
         },
 
         onDel: function () {
@@ -265,7 +220,7 @@ define([
                     var phoneTd     = '<td>' + v.tel + '</td>';
                     var cellphoneTd = '<td>' + v.phone + '</td>';
                     var statusTd    = '<td>' + config.orgStatus[v.status] + '</td>';
-                    oTr += '<tr class="fadeIn animated" data-id="'+v.id+'">' + checkTd + codeTd + orgNameTd + orgTypeTd + upLevelTd + phoneTd + cellphoneTd + statusTd + controlTd + '</tr>';
+                    oTr += '<tr class="fadeIn animated" data-id="'+v.memberid+'">' + checkTd + codeTd + orgNameTd + orgTypeTd + upLevelTd + phoneTd + cellphoneTd + statusTd + controlTd + '</tr>';
                 });
                 table.find("tbody").empty().html(oTr);
 
