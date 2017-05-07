@@ -37,12 +37,11 @@ class AgentController extends Controller {
        $data['page'] = $page;
        $data['totalPages'] = ceil($count/$pageNum);
        $data['list'] = $list;
-           $this->ajaxReturn($data);
+       $this->ajaxReturn($data);
     }
     public function add(){
       $member_info =M('agent_info');
-      $pageNum = isset($_POST['pageNum'])?$_POST['pageNum']:5;
-      $page = isset($_POST['page'])?$_POST['page']:1;
+      
 
 
     }
