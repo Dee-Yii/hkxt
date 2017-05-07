@@ -27,7 +27,7 @@ define(["jquery"], function ($) {
          * 机构管理-新建机构
          */
         addOrg: function (data, cb) {
-            $.post(this.baseRequestUrl + "/member/addMemeber", data, function (result) {
+            $.post(this.baseRequestUrl + "/member/add", data, function (result) {
                 cb(result);
             })
         },

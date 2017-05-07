@@ -82,23 +82,28 @@ define([
             accountAPI.getOrgList(data, function (result) {
                 console.log('机构列表-调用成功');
                 $.each(result.list, function (i, v) {
-                    optionStr += '<option value="'+v.memberId+'">'+v.name+'</option>'
+                    optionStr += '<option value="'+v.memberid+'">'+v.name+'</option>'
                 });
                 oSelect.html(optionStr);
             });
-
-
-
-            // *********
         },
         onSearch: function () {
-
+            $(".J_search").on("click",function () {
+                var data={
+                    role: $("[name=roleType]").val(),
+                    phone: $("[name=phone]").val(),
+                    orgName: $("[name=orgName]").val(),
+                    nickname: $("[name=nickname]").val()
+                };
+                this.fnGetList(data, true);
+            })
         },
 
         /**
          * 添加用户
          */
         onAdd: function () {
+            var _this = this;
             var btn = $(".addUserModal .remodal-confirm");
             var oForm = $(".addUserModal form");
             btn.on("click", function () {
@@ -110,19 +115,18 @@ define([
                     uid: oForm.find('[name=username]').val(),
                     password: oForm.find('[name=password]').val(),
                     nickname: oForm.find('[name=nickname]').val(),
-                    // role: ''
+                    // role: oForm.find('[name=roleType]').val()
                 };
+                accountAPI.addUser(data,function (result) {
+                    if(result.code==0){
+                        addUserModal.close();
+                        layer.msg("新建成功");
+                        _this.fnGetList({},true);
 
-                // ******
-                layer.msg("新建成功");
-                addUserModal.close();
-                $this.removeClass("disabled");
-                // ******
-
-                accountAPI.addOrg(data,function (result) {
-                    addUserModal.close();
+                    }else{
+                        layer.msg("新建失败");
+                    }
                     $this.removeClass("disabled");
-                    layer.msg("新建成功");
                 });
             })
         },
@@ -131,6 +135,7 @@ define([
          * 修改用户
          */
         onChange: function () {
+            var _this = this;
             var btn = $(".changeUserModal .remodal-confirm");
             var oForm = $(".changeUserModal form");
             btn.on("click", function () {
@@ -143,19 +148,17 @@ define([
                     uid: oForm.find('[name=username]').val(),
                     password: oForm.find('[name=password]').val(),
                     nickname: oForm.find('[name=nickname]').val(),
-                    // role: ''
+                    // role: oForm.find('[name=roleType]').val()
                 };
-
-                // ******
-                layer.msg("修改成功");
-                changeUserModal.close();
-                $this.removeClass("disabled");
-                // ******
-
                 accountAPI.changeUser(data,function (result) {
-                    changeUserModal.close();
+                    if(result.code==0){
+                        addUserModal.close();
+                        layer.msg("新建成功");
+                        _this.fnGetList({},true);
+                    }else{
+                        layer.msg("新建失败");
+                    }
                     $this.removeClass("disabled");
-                    layer.msg("修改成功");
                 });
             })
         },
@@ -166,22 +169,15 @@ define([
         onDel: function () {
             var _this = this;
             $(".J_onDel").on("click", function () {
-                var selectArr = _this.fnGetSelect();
+                var selectArr = utils.getCheckedArr();
                 if(!selectArr.length){
                     layer.msg("请选择要操作的数据");
                     return;
                 }
                 var data={
-                    id: selectArr,
-                    status: $(this).hasClass('open-i') ? 0 : 1
+                    id: selectArr
                 };
-
-                // *********
-                layer.msg("删除成功");
-                _this.fnGetList({}, true);
-                // *********
-
-                accountAPI.updateUserStatus(data,function (result) {
+                accountAPI.delUser(data,function (result) {
                     if(result.code == 0){
                         layer.msg("删除成功");
                         _this.fnGetList({}, true);
@@ -199,23 +195,17 @@ define([
         onUpdateUserStatus: function () {
             var _this = this;
             $(".J_updateStatus").on("click", function () {
-                var selectArr = _this.fnGetSelect();
-                if(!selectArr.length){
+                var idArr = utils.getCheckedArr();
+                if(!idArr.length){
                     layer.msg("请选择要操作的数据");
                     return;
                 }
                 var data={
-                    id: selectArr,
+                    id: idArr,
                     status: $(this).hasClass('open-i') ? 0 : 1
                 };
 
-                // *********
-                var text = data.status === 0 ? '启用成功' : '禁用成功';
-                _this.fnGetList({}, true);
-                layer.msg(text);
-                // *********
-
-                accountAPI.updateUserStatus(data,function () {
+                accountAPI.updateUserStatus(data,function (result) {
                     var text = data.status === 0 ? '启用成功' : '禁用成功';
                     if(result.code == 0){
                         layer.msg(text);
@@ -243,16 +233,15 @@ define([
                     password: oForm.find('[name=password]').val()
                 };
 
-                // ******
-                layer.msg("重置密码成功");
-                resetPwdModal.close();
-                $this.removeClass("disabled");
-                // ******
-
                 accountAPI.resetPwd(data,function (result) {
-                    resetPwdModal.close();
-                    $this.removeClass("disabled");
-                    layer.msg("重置密码成功");
+                    if(result.code == 0){
+                        resetPwdModal.close();
+                        $this.removeClass("disabled");
+                        layer.msg("重置密码成功");
+                    } else{
+                        layer.msg("操作失败");
+                    }
+
                 });
             });
         },
@@ -306,225 +295,6 @@ define([
                     }
                 }
             });
-
-            // ***********
-            var result = {
-                "totalPages": 1,
-                "pageNum": 5,
-                "page": 1,
-                "list": [
-                    {
-                        "id": "1",
-                        "uid": "XA111",
-                        "password": "QWEQW",
-                        "nickname": "小白",
-                        "cellphone": "1111",
-                        "registerTime": "2017-05-03",
-                        "status": "0",
-                        "memberId": "1",
-                        "memberInfo": {
-                            "memberId": "1",
-                            "name": "华东",
-                            "type": "0",
-                            "superMemberid": null
-                        }
-                    },
-                    {
-                        "id": "2",
-                        "uid": "qqq",
-                        "password": "asdas",
-                        "nickname": "暗示的话",
-                        "cellphone": "aaa",
-                        "registerTime": "2017-05-17",
-                        "status": "0",
-                        "memberId": "123",
-                        "memberInfo": {
-                            "memberId": "123",
-                            "name": "按时",
-                            "type": "0",
-                            "superMemberid": "1"
-                        }
-                    },
-                    {
-                        "id": "1",
-                        "uid": "XA111",
-                        "password": "QWEQW",
-                        "nickname": "小白",
-                        "cellphone": "1111",
-                        "registerTime": "2017-05-03",
-                        "status": "0",
-                        "memberId": "1",
-                        "memberInfo": {
-                            "memberId": "1",
-                            "name": "华东",
-                            "type": "0",
-                            "superMemberid": null
-                        }
-                    },
-                    {
-                        "id": "2",
-                        "uid": "qqq",
-                        "password": "asdas",
-                        "nickname": "暗示的话",
-                        "cellphone": "aaa",
-                        "registerTime": "2017-05-17",
-                        "status": "0",
-                        "memberId": "123",
-                        "memberInfo": {
-                            "memberId": "123",
-                            "name": "按时",
-                            "type": "0",
-                            "superMemberid": "1"
-                        }
-                    },
-                    {
-                        "id": "1",
-                        "uid": "XA111",
-                        "password": "QWEQW",
-                        "nickname": "小白",
-                        "cellphone": "1111",
-                        "registerTime": "2017-05-03",
-                        "status": "0",
-                        "memberId": "1",
-                        "memberInfo": {
-                            "memberId": "1",
-                            "name": "华东",
-                            "type": "0",
-                            "superMemberid": null
-                        }
-                    },
-                    {
-                        "id": "2",
-                        "uid": "qqq",
-                        "password": "asdas",
-                        "nickname": "暗示的话",
-                        "cellphone": "aaa",
-                        "registerTime": "2017-05-17",
-                        "status": "0",
-                        "memberId": "123",
-                        "memberInfo": {
-                            "memberId": "123",
-                            "name": "按时",
-                            "type": "0",
-                            "superMemberid": "1"
-                        }
-                    },
-                    {
-                        "id": "1",
-                        "uid": "XA111",
-                        "password": "QWEQW",
-                        "nickname": "小白",
-                        "cellphone": "1111",
-                        "registerTime": "2017-05-03",
-                        "status": "0",
-                        "memberId": "1",
-                        "memberInfo": {
-                            "memberId": "1",
-                            "name": "华东",
-                            "type": "0",
-                            "superMemberid": null
-                        }
-                    },
-                    {
-                        "id": "2",
-                        "uid": "qqq",
-                        "password": "asdas",
-                        "nickname": "暗示的话",
-                        "cellphone": "aaa",
-                        "registerTime": "2017-05-17",
-                        "status": "0",
-                        "memberId": "123",
-                        "memberInfo": {
-                            "memberId": "123",
-                            "name": "按时",
-                            "type": "0",
-                            "superMemberid": "1"
-                        }
-                    },
-                    {
-                        "id": "1",
-                        "uid": "XA111",
-                        "password": "QWEQW",
-                        "nickname": "小白",
-                        "cellphone": "1111",
-                        "registerTime": "2017-05-03",
-                        "status": "0",
-                        "memberId": "1",
-                        "memberInfo": {
-                            "memberId": "1",
-                            "name": "华东",
-                            "type": "0",
-                            "superMemberid": null
-                        }
-                    },
-                    {
-                        "id": "2",
-                        "uid": "qqq",
-                        "password": "asdas",
-                        "nickname": "暗示的话",
-                        "cellphone": "aaa",
-                        "registerTime": "2017-05-17",
-                        "status": "0",
-                        "memberId": "123",
-                        "memberInfo": {
-                            "memberId": "123",
-                            "name": "按时",
-                            "type": "0",
-                            "superMemberid": "1"
-                        }
-                    }
-                ]
-            };
-            console.log("获取用户管理列表 调用成功!");
-            if (result.list.length == "0") {
-                table.find("tbody").empty().html("<tr><td colspan='9'>暂无记录</td></tr>");
-                $(".pagination").hide();
-                return false;
-            }
-            var oTr,
-                checkTd = '<td><input type="checkbox"></td>',
-                controlTd = "<td>" +
-                    "<a class='J_showChangeUser text-blue' href='javascript:;'> 修改 </a> | " +
-                    "<a class='J_showResetPwd text-blue' href='javascript:;'> 重置密码 </a>" +
-                    "</td>";
-            $.each(result.list, function (i, v) {
-                var usernameTd = '<td>' + v.uid + '</td>';
-                var nicknameTd = '<td>' + v.nickname + '</td>';
-                var roleTypeTd = '<td>' + config.roleType[v.roleType || 0] + '</td>';
-                var orgTd = '<td>' + v.memberInfo.name + '</td>';
-                var phoneTd = '<td>' + v.cellphone + '</td>';
-                var timeTd = '<td>' + v.registerTime + '</td>';
-                var statusTd = '<td>' + config.userStatus[v.status] + '</td>';
-                oTr += '<tr class="fadeIn animated" data-id="'+v.id+'">' + checkTd + usernameTd + nicknameTd + roleTypeTd + orgTd + phoneTd + timeTd + statusTd + controlTd + '</tr>';
-            });
-            table.find("tbody").empty().html(oTr);
-
-            if (initPage) {
-                var pageCount = result.totalPages;
-                if (pageCount > 0) {
-                    console.log("页数：" + pageCount);
-                    $(".pagination").show().html("").createPage({
-                        pageCount: pageCount,
-                        current: 1,
-                        backFn: function (p) {
-                            var newData = data;
-                            newData.page = p;
-                            _this.fnGetList(data)
-                        }
-                    })
-                }
-            }
-            // ***********
-        },
-        fnGetSelect: function () {
-            var arr = [];
-            $(".data-container table tbody tr").each(function () {
-                var $this = $(this);
-                if($this.find("input[type=checkbox]").prop("checked")){
-                    arr.push($this.attr('data-id'));
-                }
-            });
-            return arr;
         }
 
     };
