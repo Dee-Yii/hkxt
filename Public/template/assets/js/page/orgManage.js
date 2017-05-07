@@ -191,6 +191,9 @@ define([
             });
 
             confirmBtn.on("click", function () {
+                var $this = $(this);
+                if ($this.hasClass("disabled")) return;
+                $this.addClass("disabled");
                 var data = {
                     memberid: memberid,
                     name: oForm.find('[name=orgName]').val(),

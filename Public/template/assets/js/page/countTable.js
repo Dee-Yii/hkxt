@@ -15,21 +15,32 @@ define([
         render: function () {
             utils.initDatePicker();
             utils.initClientInfo();
-            this.fnGetList({}, true);
+            this.fnGetList({pageNum:10}, true);
         },
         bindEvents: function () {
             this.onSearch();
         },
 
         onSearch: function () {
-
+            var _this = this;
+            $(".J_search").on("click", function () {
+                var oForm = $(".search-bar");
+                var data = {
+                    page: 1,
+                    start: oForm.find("#dataStart").val(),
+                    end: oForm.find("#dataEnd").val(),
+                    nickname: oForm.find("[name=nickname]").val(),
+                    superMemberid: oForm.find("input[name=level]").val(),
+                    name: oForm.find("input[name=orgName]").val() || ""
+                };
+                _this.fnGetList(data, true);
+            });
         },
         fnGetList: function (data, initPage) {
             var _this = this;
             var table = $(".data-container table");
-            console.log(countAPI);
             countAPI.getReport(data, function (result) {
-                console.log("获取入金记录 调用成功!");
+                console.log("获取统计报表 调用成功!");
                 if (result.list.length == "0") {
                     table.find("tbody").empty().html("<tr><td colspan='6'>暂无记录</td></tr>");
                     $(".pagination").hide();

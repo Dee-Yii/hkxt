@@ -18,7 +18,7 @@ define([
         render: function () {
             this.initModal();
             this.initEventBind();
-            this.fnGetList({}, true);
+            this.fnGetList({pageNum: 10}, true);
         },
         bindEvents: function () {
             this.onSearch();
@@ -95,7 +95,6 @@ define([
                     checkTd = '<td><input type="checkbox"></td>';
 
                 $.each(result.list, function (i, v) {
-                    console.log(v.memberInfo);
                     var timeTd = '<td>' + v.registerTime + '</td>';
                     var nameTd = '<td>' + v.nickname + '</td>';
                     var phoneTd = '<td>' + v.phoneNum + '</td>';
