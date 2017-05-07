@@ -77,7 +77,9 @@ class MemberController extends Controller {
 
         );
       }else{
-         $return = array('code' =>-1 ,'message'=>fail );
+         $return = array(
+           'code' =>-1 ,
+           'message'=>'fail' );
       }
 
       $this->ajaxReturn($return);
