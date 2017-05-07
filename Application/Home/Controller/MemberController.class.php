@@ -27,7 +27,7 @@ class MemberController extends Controller {
          $list[$key]['superMemberInfo'] = "";
          if(!empty($value['superMemberid'])){
            $map['memberid'] = $value['superMemberid'];
-           $superMemberInfo = $member_info->where($map)->select();
+           $superMemberInfo = $member_info->where($map)->find();
            $list[$key]['superMemberInfo'] = $superMemberInfo;
          }
        }
@@ -41,7 +41,7 @@ class MemberController extends Controller {
     }
     public function getlistall(){
        $member_info =M('member_info');
-       $list = $member_info->where($map)->page($page,$pageNum)->select();//获取分页数据
+       $list = $member_info->where($map)->select();//获取分页数据
        foreach ($list as $key => $value) {
          # code...
          $list[$key]['superMemberInfo'] = "";
