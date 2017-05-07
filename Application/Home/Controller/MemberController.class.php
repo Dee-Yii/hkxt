@@ -19,6 +19,7 @@ class MemberController extends Controller {
       $member_info =M('member_info');
       $pageNum = isset($_POST['pageNum'])?$_POST['pageNum']:5;
       $page = isset($_POST['page'])?$_POST['page']:1;
+      $
        $count = $member_info->where($map)->count();// 查询满足要求的总记录数
        $list = $member_info->where($map)->page($page,$pageNum)->select();//获取分页数据
        foreach ($list as $key => $value) {
@@ -102,13 +103,10 @@ class MemberController extends Controller {
       $data['status'] = !empty($_POST['status'])?$_POST['status']:0;
       foreach ($ids as $key => $value) {
         # code...
-
-
           M('member_info')->where("id= $value")->save($data);
-
-        }
+        
       }
-      $return =  array(
+      $return = array(
         'code'=>0,
         'message'=>'success',
 
