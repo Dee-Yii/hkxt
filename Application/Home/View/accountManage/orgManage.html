@@ -100,8 +100,8 @@
                         <option value="1">二级机构</option>
                     </select>
                 </div>
-                <div class="form-control hide">
-                    <label>所属一级机构</label>
+                <div class="form-control hide J_topOrg">
+                    <label>上级机构</label>
                     <select name="orgTopLevel">
                         <option value="0">一级机构</option>
                     </select>

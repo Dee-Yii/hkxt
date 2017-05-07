@@ -73,8 +73,8 @@ define([
             };
             accountAPI.getTopOrgList(data, function (result) {
                 console.log('一级机构列表-调用成功');
-                $.each(result.list, function (i, v) {
-                    optionStr += '<option value="'+v.memberId+'">'+v.name+'</option>'
+                $.each(result, function (i, v) {
+                    optionStr += '<option value="'+v.memberid+'">'+v.name+'</option>'
                 });
                 oSelect.html(optionStr);
             });
@@ -82,16 +82,16 @@ define([
 
         onAdd: function () {
             var confirmBtn = $(".addOrgModal .remodal-confirm");
-            var oForm = $(".addUserModal form");
+            var oForm = $(".addOrgModal form");
 
             var orgLevelSelect = oForm.find('[name=orgLevel]');
-            var orgTopSelect = oForm.find('[name=orgTopLevel]');
+            var orgTop = oForm.find('.J_topOrg');
             orgLevelSelect.on('change', function () {
                 var $this = $(this);
                 if($this.val() == 0){
-                    orgTopSelect.hide();
+                    orgTop.hide();
                 }else{
-                    orgTopSelect.show();
+                    orgTop.show();
                 }
             });
 
@@ -101,10 +101,10 @@ define([
                 if ($this.hasClass("disabled")) return;
                 $this.addClass("disabled");
                 var data = {
-                    name: oForm.find('orgName').val(),
-                    mark: oForm.find('[name=username]').val(),
-                    superMemberid: oForm.find('[name=orgLevel]').val() == 0 ? 0 : oForm.find('[name=orgTopLevel]').val(),
-                    type: oForm.find('[name=nickname]').val(),
+                    name: oForm.find('[name=orgName]').val(),
+                    mark: oForm.find('[name=orgCode]').val(),
+                    superMemberid: orgLevelSelect.val() == 0 ? 0 : oForm.find('[name=orgTopLevel]').val(),
+                    type: oForm.find('[name=orgType]').val(),
                     tel: oForm.find('[name=phone]').val(),
                     phone: oForm.find('[name=cellphone]').val()
                 };
@@ -258,13 +258,13 @@ define([
                     checkTd     = '<td><input type="checkbox"></td>',
                     controlTd = "<td><a class='J_showChangeOrg text-blue' href='javascript:;'>修改</a></td>";
                 $.each(result.list, function (i, v) {
-                    var codeTd      = '<td>' + v.memberid + '</td>';
+                    var codeTd      = '<td>' + v.mark + '</td>';
                     var orgNameTd   = '<td>' + v.name + '</td>';
                     var orgTypeTd   = '<td>' + config.orgType[v.type] + '</td>';
                     var upLevelTd   = '<td>' + v.superMemberInfo + '</td>';
-                    var phoneTd     = '<td>' + v.phone + '</td>';
-                    var cellphoneTd = '<td>' + v.cellphone + '</td>';
-                    var statusTd    = '<td>' + config.orgStatus[v.orgStatus] + '</td>';
+                    var phoneTd     = '<td>' + v.tel + '</td>';
+                    var cellphoneTd = '<td>' + v.phone + '</td>';
+                    var statusTd    = '<td>' + config.status[v.status] + '</td>';
                     oTr += '<tr class="fadeIn animated" data-id="'+v.id+'">' + checkTd + codeTd + orgNameTd + orgTypeTd + upLevelTd + phoneTd + cellphoneTd + statusTd + controlTd + '</tr>';
                 });
                 table.find("tbody").empty().html(oTr);
