@@ -47,7 +47,7 @@ class MemberController extends Controller {
          $list[$key]['superMemberInfo'] = "";
          if(!empty($value['superMemberid'])){
            $map['memberid'] = $value['superMemberid'];
-           $superMemberInfo = $member_info->where($map)->select();
+           $superMemberInfo = $member_info->where($map)->find();
            $list[$key]['superMemberInfo'] = $superMemberInfo;
          }
        }
@@ -62,14 +62,15 @@ class MemberController extends Controller {
       $tel= $_POST['tel'];
       $phone = $_POST['phone'];//机构名称
       $status = 0;//机构名称
-      $member_info->name = $name;
-      $member_info->mark = $mark;
-      $member_info->superMemberid = $superMemberid;
-      $member_info->type = $type;
-      $member_info->tel = $tel;
-      $member_info->phone = $phone;
-      $member_info->status =$status;
-      $res = $member_info->save();
+      $data['name'] = $name;
+      $data['mark'] =$mark;
+      $data['superMemberid'] =$superMemberid;
+      $$data['type'] = $type;
+      $data['tel'] = $tel;
+      $data['phone'] = $phone;
+      $data['status'] =$status;
+      $res = $member_info->add($data);
+      
       if($res){
         $return =  array(
           'code'=>0,
