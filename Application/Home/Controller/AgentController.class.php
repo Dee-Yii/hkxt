@@ -26,13 +26,11 @@ class AgentController extends Controller {
        foreach ($list as $key => $value) {
          # code...
          $list[$key]['memberInfo'] = "";
-         if(1){
-
            $map['memberid'] = 1;
            $MemberInfo = $member_info->where($map)->select();
            $list[$key]['memberInfo'] = $MemberInfo;
          }
-       }
+
        $Page   = new \Think\Page($count,$pageNum);// 实例化分页类 传入总记录数和每页显示的记录数(25)
        $data['totalPages'] = $count;
        $data['pageNum'] =$pageNum;
