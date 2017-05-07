@@ -5,18 +5,18 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <title></title>
-    <link rel="stylesheet" href="/jy/Public/template/assets/css/index.min.css">
+    <link rel="stylesheet" href="/~DAY/hkxt/Public/template/assets/css/index.min.css">
   </head>
   <body>
     <div class="wrap">
       <div class="header">
         <div class="clearfix layout">
-          <h1><a href="/jy/index.php/Home/accountmanage/usermanage">交易管理系统</a></h1>
-          <div><a href="/jy/index.php/Home/accountmanage/usermanage" >账户管理</a><a href="/jy/index.php/Home/clientmanage/clientList" class="active">客户管理</a><a href="/jy/index.php/Home/countmanage/countTable">结算管理</a><!--<a href="/sysManage/pwdManage">系统管理</a>--></div>
+          <h1><a href="/~DAY/hkxt/index.php/Home/accountmanage/usermanage">交易管理系统</a></h1>
+          <div><a href="/~DAY/hkxt/index.php/Home/accountmanage/usermanage" >账户管理</a><a href="/~DAY/hkxt/index.php/Home/clientmanage/clientList" class="active">客户管理</a><a href="/~DAY/hkxt/index.php/Home/countmanage/countTable">结算管理</a><!--<a href="/sysManage/pwdManage">系统管理</a>--></div>
         </div>
       </div>
       <div class="main">
-        <div class="sidebar"><a href="/jy/index.php/Home/clientManage/clientList" class="active">客户列表</a><!--<a href="/jy/index.php/Home/clientManage/chiCangSearch">持仓查询</a><a href="/jy/index.php/Home/clientManage/pingCangSearch">平仓查询</a><a href="/jy/index.php/Home/clientManage/chuRuJinSearch">出入金查询</a>--></div>
+        <div class="sidebar"><a href="/~DAY/hkxt/index.php/Home/clientManage/clientList" class="active">客户列表</a><!--<a href="/~DAY/hkxt/index.php/Home/clientManage/chiCangSearch">持仓查询</a><a href="/~DAY/hkxt/index.php/Home/clientManage/pingCangSearch">平仓查询</a><a href="/~DAY/hkxt/index.php/Home/clientManage/chuRuJinSearch">出入金查询</a>--></div>
         <div class="content">
           <!--<div class="control-bar"><a href="javascript:;" class="btn">导出EXL</a></div>-->
           <!--<div class="search-bar">注册时间:
@@ -91,7 +91,7 @@
         <div class="remodal-footer"><a href="javascript:;" data-remodal-action="confirm" class="remodal-confirm">确认</a><a href="javascript:;" data-remodal-action="cancel" class="remodal-cancel">取消</a></div>
       </div>
     </div>
-    <script src="/jy/Public/template/assets/js/vendor/require.js" data-main="/jy/Public/template/assets/js/common"></script>
+    <script src="/~DAY/hkxt/Public/template/assets/js/vendor/require.js" data-main="/~DAY/hkxt/Public/template/assets/js/common"></script>
     <script>
       require(['common'], function () {
           require(['page/clientList']);

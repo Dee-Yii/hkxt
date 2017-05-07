@@ -5,19 +5,19 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <title></title>
-    <link rel="stylesheet" href="/qaq/Public/template/assets/css/index.min.css">
+    <link rel="stylesheet" href="/~DAY/hkxt/Public/template/assets/css/index.min.css">
   </head>
   <body>
     <div class="wrap">
       <div class="header">
         <div class="clearfix layout">
-          <h1><a href="/qaq/index.php/Home/accountmanage/orgManage">交易管理系统</a></h1>
-          <div><a href="/qaq/index.php/Home/accountmanage/orgManage" class="active">账户管理</a><a href="/qaq/index.php/Home/clientManage/clientList">客户管理</a><a href="/qaq/index.php/Home/countManage/countTable">结算管理</a><a href="/qaq/index.php/Home/sysManage/pwdManage">系统管理</a></div>
+          <h1><a href="/~DAY/hkxt/index.php/Home/accountmanage/orgManage">交易管理系统</a></h1>
+          <div><a href="/~DAY/hkxt/index.php/Home/accountmanage/orgManage" class="active">账户管理</a><a href="/~DAY/hkxt/index.php/Home/clientManage/clientList">客户管理</a><a href="/~DAY/hkxt/index.php/Home/countManage/countTable">结算管理</a><a href="/~DAY/hkxt/index.php/Home/sysManage/pwdManage">系统管理</a></div>
         </div>
       </div>
       <div class="main">
-        <div class="sidebar"><a href="/qaq/index.php/Home/accountmanage/userManage">用户管理</a><a href="/qaq/index.php/Home/accountmanage/orgManage" class="active">机构管理</a><a href="/qaq/index.php/Home/accountmanage/brokerManage">经纪人管理</a>
-          <!--a(class="#{ level[1] == 4 ? 'active' : '' }" href="/qaq/index.php/Home/wqManage") 微圈管理-->
+        <div class="sidebar"><a href="/~DAY/hkxt/index.php/Home/accountmanage/userManage">用户管理</a><a href="/~DAY/hkxt/index.php/Home/accountmanage/orgManage" class="active">机构管理</a><a href="/~DAY/hkxt/index.php/Home/accountmanage/brokerManage">经纪人管理</a>
+          <!--a(class="#{ level[1] == 4 ? 'active' : '' }" href="/~DAY/hkxt/index.php/Home/wqManage") 微圈管理-->
         </div>
         <div class="content">
           <div class="search-bar">
@@ -273,7 +273,7 @@
         <div class="remodal-footer"><a href="javascript:;" class="remodal-confirm">确 定</a></div>
       </div>
     </div>
-    <script src="/qaq/Public/template/assets/js/vendor/require.js" data-main="/qaq/Public/template/assets/js/common"></script>
+    <script src="/~DAY/hkxt/Public/template/assets/js/vendor/require.js" data-main="/~DAY/hkxt/Public/template/assets/js/common"></script>
     <script>
       require(['common'], function () {
           require(['page/orgManage']);

@@ -5,19 +5,19 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <title></title>
-    <link rel="stylesheet" href="/qaq/Public/template/assets/css/index.min.css">
+    <link rel="stylesheet" href="/~DAY/hkxt/Public/template/assets/css/index.min.css">
   </head>
   <body>
     <div class="wrap">
       <div class="header">
         <div class="clearfix layout">
-          <h1><a href="/qaq/index.php/Home/orgManage">交易管理系统</a></h1>
-          <div><a href="/qaq/index.php/Home/orgManage" class="active">账户管理</a><a href="/clientManage/clientList">客户管理</a><a href="/countManage/countTable">结算管理</a><a href="/sysManage/pwdManage">系统管理</a></div>
+          <h1><a href="/~DAY/hkxt/index.php/Home/orgManage">交易管理系统</a></h1>
+          <div><a href="/~DAY/hkxt/index.php/Home/orgManage" class="active">账户管理</a><a href="/clientManage/clientList">客户管理</a><a href="/countManage/countTable">结算管理</a><a href="/sysManage/pwdManage">系统管理</a></div>
         </div>
       </div>
       <div class="main">
-        <div class="sidebar"><a href="/qaq/index.php/Home/orgManage" class="active">机构管理</a><a href="/qaq/index.php/Home/userManage">用户管理</a><a href="/qaq/index.php/Home/brokerManage">经纪人管理</a>
-          <!--a(class="#{ level[1] == 4 ? 'active' : '' }" href="/qaq/index.php/Home/wqManage") 微圈管理-->
+        <div class="sidebar"><a href="/~DAY/hkxt/index.php/Home/orgManage" class="active">机构管理</a><a href="/~DAY/hkxt/index.php/Home/userManage">用户管理</a><a href="/~DAY/hkxt/index.php/Home/brokerManage">经纪人管理</a>
+          <!--a(class="#{ level[1] == 4 ? 'active' : '' }" href="/~DAY/hkxt/index.php/Home/wqManage") 微圈管理-->
         </div>
         <div class="content">
           <div class="search-bar">
@@ -240,7 +240,7 @@
         <div class="remodal-footer"><a href="javascript:;" data-remodal-action="cancel" class="remodal-cancel">拒绝</a><a href="javascript:;" data-remodal-action="confirm" class="remodal-confirm">通过</a></div>
       </div>
     </div>
-    <script src="/qaq/Public/template/assets/js/vendor/require.js" data-main="/qaq/Public/template/assets/js/common"></script>
+    <script src="/~DAY/hkxt/Public/template/assets/js/vendor/require.js" data-main="/~DAY/hkxt/Public/template/assets/js/common"></script>
     <script>
       require(['common'], function () {
           require(['page/brokerManage']);
