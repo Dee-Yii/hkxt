@@ -46,12 +46,14 @@ class MemberController extends Controller {
       $type = $_POST['type'];
       $tel= $_POST['tel'];
       $phone = $_POST['phone'];//机构名称
+      $status = 0;//机构名称
       $member_info->name = $name;
       $member_info->mark = $mark;
       $member_info->superMemberid = $superMemberid;
       $member_info->type = $type;
       $member_info->tel = $tel;
       $member_info->phone = $phone;
+      $member_info->status =$status;
       $res = $member_info->save();
       if($res){
         $return =  array(
@@ -94,6 +96,25 @@ class MemberController extends Controller {
            'message'=>'fail' );
       }
       $this->ajaxReturn($return);
+    }
+    public function updateStatus(){
+      $ids=$_POST['memberId'];
+      $data['status'] = !empty($_POST['status'])?$_POST['status']:0;
+      foreach ($ids as $key => $value) {
+        # code...
+
+
+          M('member_info')->where("id= $value")->save($data);
+
+        }
+      }
+      $return =  array(
+        'code'=>0,
+        'message'=>'success',
+
+      );
+      $this->ajaxReturn($return);
+
     }
 
 }
