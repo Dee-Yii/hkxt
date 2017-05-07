@@ -23,6 +23,7 @@ define([
         render: function () {
             this.initModal();
             this.fnGetList({},true);
+            this.initTopOrgList();
         },
 
         bindEvents: function () {
@@ -63,20 +64,55 @@ define([
             });
         },
 
+        initTopOrgList: function () {
+            var oSelect = $("select[name=orgTopLevel]");
+            var optionStr = "";
+            var data = {
+                pageNum: '',
+                page: ''
+            };
+            accountAPI.getTopOrgList(data, function (result) {
+                console.log('一级机构列表-调用成功');
+                $.each(result, function (i, v) {
+                    optionStr += '<option value="'+v.memberid+'">'+v.name+'</option>'
+                });
+                oSelect.html(optionStr);
+            });
+        },
+
         onAdd: function () {
             var confirmBtn = $(".addOrgModal .remodal-confirm");
+            var oForm = $(".addOrgModal form");
+
+            var orgLevelSelect = oForm.find('[name=orgLevel]');
+            var orgTop = oForm.find('.J_topOrg');
+            orgLevelSelect.on('change', function () {
+                var $this = $(this);
+                if($this.val() == 0){
+                    orgTop.hide();
+                }else{
+                    orgTop.show();
+                }
+            });
+
             confirmBtn.on("click", function (e) {
                 e.preventDefault();
-
                 var $this = $(this);
                 if ($this.hasClass("disabled")) return;
                 $this.addClass("disabled");
+                var data = {
+                    name: oForm.find('[name=orgName]').val(),
+                    mark: oForm.find('[name=orgCode]').val(),
+                    superMemberid: orgLevelSelect.val() == 0 ? 0 : oForm.find('[name=orgTopLevel]').val(),
+                    type: oForm.find('[name=orgType]').val(),
+                    tel: oForm.find('[name=phone]').val(),
+                    phone: oForm.find('[name=cellphone]').val()
+                };
 
                 // todo Validate
-                var data = {};
                 accountAPI.addOrg(data, function (result) {
                     console.log(result);
-
+                    layer.msg('添加成功');
                     addOrgModal.close();
                     $this.removeClass("disabled");
                 })
@@ -213,8 +249,8 @@ define([
             // showLoading(".J_consumeTable");
             accountAPI.searchOrg(data, function (result) {
                 console.log("获取机构管理列表 调用成功!");
-                if (result.list.length == "0") {
-                    table.find("tbody").empty().html("<tr><td colspan='9'>暂无记录</td></tr>");
+                if (!result.list || result.list.length == "0") {
+                    table.find("tbody").empty().html("<tr><td colspan='10'>暂无记录</td></tr>");
                     $(".pagination").hide();
                     return false;
                 }
@@ -222,14 +258,14 @@ define([
                     checkTd     = '<td><input type="checkbox"></td>',
                     controlTd = "<td><a class='J_showChangeOrg text-blue' href='javascript:;'>修改</a></td>";
                 $.each(result.list, function (i, v) {
-                    var codeTd      = '<td>' + v.memberid + '</td>';
+                    var codeTd      = '<td>' + v.mark + '</td>';
                     var orgNameTd   = '<td>' + v.name + '</td>';
                     var orgTypeTd   = '<td>' + config.orgType[v.type] + '</td>';
                     var upLevelTd   = '<td>' + v.superMemberInfo + '</td>';
-                    var phoneTd     = '<td>' + v.phone + '</td>';
-                    var cellphoneTd = '<td>' + v.cellphone + '</td>';
-                    var statusTd    = '<td>' + config.orgStatus[v.orgStatus] + '</td>';
-                    oTr += '<tr class="fadeIn animated">' + checkTd + codeTd + orgNameTd + orgTypeTd + upLevelTd + phoneTd + cellphoneTd + statusTd + controlTd + '</tr>';
+                    var phoneTd     = '<td>' + v.tel + '</td>';
+                    var cellphoneTd = '<td>' + v.phone + '</td>';
+                    var statusTd    = '<td>' + config.status[v.status] + '</td>';
+                    oTr += '<tr class="fadeIn animated" data-id="'+v.id+'">' + checkTd + codeTd + orgNameTd + orgTypeTd + upLevelTd + phoneTd + cellphoneTd + statusTd + controlTd + '</tr>';
                 });
                 table.find("tbody").empty().html(oTr);
 

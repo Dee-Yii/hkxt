@@ -1,6 +1,6 @@
 requirejs.config({
     baseUrl: '../../../Public/template/assets/js',
-    //urlArgs: "version=" + new Date().getTime(),
+    // urlArgs: "version=" + new Date().getTime(),
     paths: {
         jquery          : 'vendor/jquery.min',
         layer           : 'vendor/layer',
