@@ -213,8 +213,8 @@ define([
             // showLoading(".J_consumeTable");
             accountAPI.searchOrg(data, function (result) {
                 console.log("获取机构管理列表 调用成功!");
-                if (result.list.length == "0") {
-                    table.find("tbody").empty().html("<tr><td colspan='9'>暂无记录</td></tr>");
+                if (!result.list || result.list.length == "0") {
+                    table.find("tbody").empty().html("<tr><td colspan='10'>暂无记录</td></tr>");
                     $(".pagination").hide();
                     return false;
                 }
@@ -229,7 +229,7 @@ define([
                     var phoneTd     = '<td>' + v.phone + '</td>';
                     var cellphoneTd = '<td>' + v.cellphone + '</td>';
                     var statusTd    = '<td>' + config.orgStatus[v.orgStatus] + '</td>';
-                    oTr += '<tr class="fadeIn animated">' + checkTd + codeTd + orgNameTd + orgTypeTd + upLevelTd + phoneTd + cellphoneTd + statusTd + controlTd + '</tr>';
+                    oTr += '<tr class="fadeIn animated" data-id="'+v.id+'">' + checkTd + codeTd + orgNameTd + orgTypeTd + upLevelTd + phoneTd + cellphoneTd + statusTd + controlTd + '</tr>';
                 });
                 table.find("tbody").empty().html(oTr);
 
