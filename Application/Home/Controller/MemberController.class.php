@@ -19,7 +19,7 @@ class MemberController extends Controller {
       $member_info =M('member_info');
       $pageNum = isset($_POST['pageNum'])?$_POST['pageNum']:5;
       $page = isset($_POST['page'])?$_POST['page']:1;
-      $
+
        $count = $member_info->where($map)->count();// 查询满足要求的总记录数
        $list = $member_info->where($map)->page($page,$pageNum)->select();//获取分页数据
        foreach ($list as $key => $value) {
@@ -37,7 +37,21 @@ class MemberController extends Controller {
        $data['page'] = $page;
        $data['totalPages'] = ceil($count/$pageNum);
        $data['list'] = $list;
-           $this->ajaxReturn($data);
+       $this->ajaxReturn($data);
+    }
+    public function getlistall(){
+       $member_info =M('member_info');
+       $list = $member_info->where($map)->page($page,$pageNum)->select();//获取分页数据
+       foreach ($list as $key => $value) {
+         # code...
+         $list[$key]['superMemberInfo'] = "";
+         if(!empty($value['superMemberid'])){
+           $map['memberid'] = $value['superMemberid'];
+           $superMemberInfo = $member_info->where($map)->select();
+           $list[$key]['superMemberInfo'] = $superMemberInfo;
+         }
+       }
+       $this->ajaxReturn($list);
     }
     public function addMember(){
       $member_info =M('member_info');
@@ -104,7 +118,7 @@ class MemberController extends Controller {
       foreach ($ids as $key => $value) {
         # code...
           M('member_info')->where("id= $value")->save($data);
-        
+
       }
       $return = array(
         'code'=>0,
