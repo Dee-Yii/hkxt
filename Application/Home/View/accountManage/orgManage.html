@@ -31,9 +31,7 @@
                     <option value="">陆运</option>
                 </select>
                 <select name="level">
-                    <option value="">上级机构</option>
-                    <option value="">航空</option>
-                    <option value="">陆运</option>
+
                 </select>
                 <input name="orgName" type="text" placeholder="机构名称"><a href="javascript:;" class="btn J_search">查询</a>
             </div>
@@ -127,22 +125,28 @@
                 </div>
                 <div class="form-control">
                     <label>机构编码</label>
-                    <input type="text" name="orgId">
+                    <input type="text" name="orgCode">
                 </div>
                 <div class="form-control">
                     <label>机构层级</label>
                     <select name="orgLevel">
-                        <option value="0">上层机构</option>
+                        <option value="0">一级机构</option>
                         <option value="1">二级机构</option>
+                    </select>
+                </div>
+                <div class="form-control hide J_topOrg">
+                    <label>上级机构</label>
+                    <select name="orgTopLevel">
+                        <option value="0">一级机构</option>
                     </select>
                 </div>
                 <div class="form-control">
                     <label>机构类型</label>
                     <select name="orgType">
                         <option value="0">航空</option>
-                        <option value="1">陆运</option>
-                        <option value="2">海运</option>
-                        <option value="3">其他</option>
+                        <!--<option value="1">陆运</option>-->
+                        <!--<option value="2">海运</option>-->
+                        <!--<option value="3">其他</option>-->
                     </select>
                 </div>
                 <div class="form-control">

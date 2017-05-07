@@ -10,7 +10,7 @@ define([
     var addOrgModal = $('[data-remodal-id=addOrgModal]').remodal();
     var changeOrgModal = $('[data-remodal-id=changeOrgModal]').remodal();
     var oInput = $(".data-container table tbody input[type=checkbox]:checked");
-    var userId;
+    var memberid;
 
 
     var body = $("body");
@@ -22,12 +22,11 @@ define([
 
         render: function () {
             this.initModal();
-            this.fnGetList({},true);
+            this.fnGetList({}, true);
             this.initTopOrgList();
         },
 
         bindEvents: function () {
-            // this.onSelectAll();
             this.onAdd();
             // this.onDel();
             this.onChange();
@@ -41,6 +40,7 @@ define([
             });
             body.on("click", ".J_showChangeOrg", function () {
                 var $this = $(this);
+                memberid = $this.parents('tr').attr('data-id');
                 var oTd = $this.parents('tr').find('td');
                 var id = oTd.eq(1).text();
                 var name = oTd.eq(2).text();
@@ -49,7 +49,7 @@ define([
                 var phone = oTd.eq(5).text();
                 var cellphone = oTd.eq(6).text();
                 var oForm = $(".changeOrgModal .modalForm");
-                oForm.find("input[name=orgId]").val(id);
+                oForm.find("input[name=orgCode]").val(id);
                 oForm.find("input[name=orgName]").val(name);
                 oForm.find("input[name=orgLevel]").val(name);
                 oForm.find("input[name=orgType]").val(name);
@@ -60,12 +60,15 @@ define([
 
             $(document).on('closed', '.remodal', function (e) {
                 $(this).find(".modalForm")[0].reset();
+                $('.J_topOrg').hide();
             });
         },
 
         initTopOrgList: function () {
+            var oSelectSearch = $("select[name=level]");
             var oSelect = $("select[name=orgTopLevel]");
-            var optionStr = "";
+            var optionSearchStr = '<option value="">上级机构</option>';
+            var optionStr = '';
             var data = {
                 pageNum: '',
                 page: ''
@@ -73,27 +76,28 @@ define([
             accountAPI.getTopOrgList(data, function (result) {
                 console.log('一级机构列表-调用成功');
                 $.each(result, function (i, v) {
-                    optionStr += '<option value="'+v.memberid+'">'+v.name+'</option>'
+                    optionStr += '<option value="' + v.memberid + '">' + v.name + '</option>';
+                    optionSearchStr += '<option value="' + v.memberid + '">' + v.name + '</option>';
                 });
+                oSelectSearch.html(optionSearchStr);
                 oSelect.html(optionStr);
             });
         },
 
         onAdd: function () {
+            var _this = this;
             var confirmBtn = $(".addOrgModal .remodal-confirm");
             var oForm = $(".addOrgModal form");
-
             var orgLevelSelect = oForm.find('[name=orgLevel]');
             var orgTop = oForm.find('.J_topOrg');
             orgLevelSelect.on('change', function () {
                 var $this = $(this);
-                if($this.val() == 0){
+                if ($this.val() == 0) {
                     orgTop.hide();
-                }else{
+                } else {
                     orgTop.show();
                 }
             });
-
             confirmBtn.on("click", function (e) {
                 e.preventDefault();
                 var $this = $(this);
@@ -110,38 +114,43 @@ define([
 
                 // todo Validate
                 accountAPI.addOrg(data, function (result) {
-                    console.log(result);
-                    layer.msg('添加成功');
-                    addOrgModal.close();
-                    $this.removeClass("disabled");
+                    if (result.code == 0) {
+                        layer.msg('添加成功');
+                        addOrgModal.close();
+                        $this.removeClass("disabled");
+                        _this.fnGetList({}, true);
+                    } else {
+                        layer.msg("操作失败");
+                    }
+
                 })
             })
         },
 
         /**
-         * 启用/禁用用户
+         * 启用/禁用
          */
         onUpdateOrgStatus: function () {
             var _this = this;
             $(".J_updateStatus").on("click", function () {
                 var idArr = utils.getCheckedArr();
-                if(!idArr.length){
+                if (!idArr.length) {
                     layer.msg("请选择要操作的数据");
                     return;
                 }
-                var data={
+                var data = {
                     id: idArr,
                     status: $(this).hasClass('open-i') ? 0 : 1
                 };
-                accountAPI.updateOrgStatus(data,function (result) {
+                accountAPI.updateOrgStatus(data, function (result) {
                     var text = data.status === 0 ? '启用成功' : '禁用成功';
-                    if(result.code == 0){
+                    if (result.code == 0) {
                         layer.msg(text);
                         _this.fnGetList({}, true);
                         // oInput.each(function () {
                         //     $(this).parents("tr").find("td").eq(7).text(config.orgStatus[data.status])
                         // })
-                    } else{
+                    } else {
                         layer.msg("操作失败");
                     }
                 })
@@ -168,10 +177,38 @@ define([
         },
 
         onChange: function () {
-            $(".changeOrgModal .remodal-confirm").on("click", function () {
-                var data = {};
+            var confirmBtn = $(".changeOrgModal .remodal-confirm");
+            var oForm = $(".changeOrgModal form");
+            var orgLevelSelect = oForm.find('[name=orgLevel]');
+            var orgTop = oForm.find('.J_topOrg');
+            orgLevelSelect.on('change', function () {
+                var $this = $(this);
+                if ($this.val() == 0) {
+                    orgTop.hide();
+                } else {
+                    orgTop.show();
+                }
+            });
+
+            confirmBtn.on("click", function () {
+                var data = {
+                    memberid: memberid,
+                    name: oForm.find('[name=orgName]').val(),
+                    mark: oForm.find('[name=orgCode]').val(),
+                    superMemberid: orgLevelSelect.val() == 0 ? 0 : oForm.find('[name=orgTopLevel]').val(),
+                    type: oForm.find('[name=orgType]').val(),
+                    tel: oForm.find('[name=phone]').val(),
+                    phone: oForm.find('[name=cellphone]').val()
+                };
                 accountAPI.changeOrg(data, function (result) {
-                    layer.msg("修改成功");
+                    if (result.code == 0) {
+                        layer.msg("修改成功");
+                        changeOrgModal.close();
+                        $this.removeClass("disabled");
+                        _this.fnGetList({}, true);
+                    } else {
+                        layer.msg("操作失败");
+                    }
                 })
             })
         },
@@ -179,23 +216,15 @@ define([
         onSearch: function () {
             var _this = this;
             $(".J_search").on("click", function () {
-                var type            = $("input[name=type]").val(),
-                    superMemberid   = $("input[name=level]").val(),
-                    name            = $("input[name=orgName]").val() || "";
+                var oForm = $(".search-bar");
                 var data = {
-                    page            : 1,
-                    type            : type,
-                    superMemberid   : superMemberid,
-                    name            : name
+                    page: 1,
+                    type: oForm.find("input[name=type]").val(),
+                    superMemberid: oForm.find("input[name=level]").val(),
+                    name: oForm.find("input[name=orgName]").val() || ""
                 };
-
-                _this.fnGetList(data,true);
-
+                _this.fnGetList(data, true);
             });
-        },
-
-        onSelectAll: function () {
-            utils.selectAll();
         },
 
         fnGetList: function (data, initPage) {
@@ -210,21 +239,19 @@ define([
                     return false;
                 }
                 var oTr,
-                    checkTd     = '<td><input type="checkbox"></td>',
+                    checkTd = '<td><input type="checkbox"></td>',
                     controlTd = "<td><a class='J_showChangeOrg text-blue' href='javascript:;'>修改</a></td>";
                 $.each(result.list, function (i, v) {
-                    var codeTd      = '<td>' + v.mark + '</td>';
-                    var orgNameTd   = '<td>' + v.name + '</td>';
-                    var orgTypeTd   = '<td>' + config.orgType[v.type] + '</td>';
-                    var upLevelTd   = '<td>' + (v.superMemberInfo ? v.superMemberInfo.name : "") + '</td>';
-                    var phoneTd     = '<td>' + v.tel + '</td>';
+                    var codeTd = '<td>' + v.mark + '</td>';
+                    var orgNameTd = '<td>' + v.name + '</td>';
+                    var orgTypeTd = '<td>' + config.orgType[v.type] + '</td>';
+                    var upLevelTd = '<td>' + (v.superMemberInfo ? v.superMemberInfo.name : "") + '</td>';
+                    var phoneTd = '<td>' + v.tel + '</td>';
                     var cellphoneTd = '<td>' + v.phone + '</td>';
-                    var statusTd    = '<td>' + config.orgStatus[v.status] + '</td>';
-                    oTr += '<tr class="fadeIn animated" data-id="'+v.memberid+'">' + checkTd + codeTd + orgNameTd + orgTypeTd + upLevelTd + phoneTd + cellphoneTd + statusTd + controlTd + '</tr>';
+                    var statusTd = '<td>' + config.orgStatus[v.status] + '</td>';
+                    oTr += '<tr class="fadeIn animated" data-id="' + v.memberid + '">' + checkTd + codeTd + orgNameTd + orgTypeTd + upLevelTd + phoneTd + cellphoneTd + statusTd + controlTd + '</tr>';
                 });
                 table.find("tbody").empty().html(oTr);
-
-
                 if (initPage) {
                     var pageCount = result.totalPages;
                     if (pageCount > 0) {
@@ -241,18 +268,8 @@ define([
                     }
                 }
             });
-            
 
-        },
-        fnGetSelect: function () {
-            var arr = [];
-            $(".data-container table tbody tr").each(function () {
-                var $this = $(this);
-                if($this.find("input[type=checkbox]").prop("checked")){
-                    arr.push($this.attr('data-id'));
-                }
-            });
-            return arr;
+
         }
     };
     page.init();

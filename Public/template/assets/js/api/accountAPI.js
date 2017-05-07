@@ -43,7 +43,7 @@ define(["jquery"], function ($) {
          * 机构管理-修改
          */
         changeOrg: function (data, cb) {
-            $.post(this.baseRequestUrl + "/changeOrg.php", data, function (result) {
+            $.post(this.baseRequestUrl + "/member/updateMember", data, function (result) {
                 cb(result);
             })
         },
