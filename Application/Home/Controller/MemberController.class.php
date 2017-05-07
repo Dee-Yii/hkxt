@@ -53,14 +53,17 @@ class MemberController extends Controller {
        }
        $this->ajaxReturn($list);
     }
-    public function addMember(){
+    public function add(){
+
       $member_info =M('member_info');
+
       $name = $_POST['name'];
       $mark = $_POST['mark'];
       $superMemberid = $_POST['superMemberid'];
       $type = $_POST['type'];
       $tel= $_POST['tel'];
       $phone = $_POST['phone'];//机构名称
+
       $status = 0;//机构名称
       $data['name'] = $name;
       $data['mark'] =$mark;
@@ -69,8 +72,9 @@ class MemberController extends Controller {
       $data['tel'] = $tel;
       $data['phone'] = $phone;
       $data['status'] =$status;
+    
       $res = $member_info->add($data);
-      
+
       if($res){
         $return =  array(
           'code'=>0,
