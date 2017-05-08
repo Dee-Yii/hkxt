@@ -52,7 +52,7 @@ class AgentController extends Controller {
       $data['status'] = 0;
       $data['verify'] = 0;
       $res = $member_info->add($data);
-    
+
       if($res){
         $return = array(
           'code'=>0,
@@ -69,7 +69,7 @@ class AgentController extends Controller {
 
     }
     public function updateStatus(){
-      $id = $_POST['code'];
+      $id = $_POST['id'];
       $data['status'] = $_POST['status'];
       foreach ($id as $key => $value) {
         # code...
