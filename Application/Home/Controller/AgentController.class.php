@@ -27,7 +27,7 @@ class AgentController extends Controller {
          # code...
          $list[$key]['memberInfo'] = "";
            $map['memberid'] = 1;
-           $MemberInfo = $member_info->where($map)->select();
+           $MemberInfo = $member_info->where($map)->find();
            $list[$key]['memberInfo'] = $MemberInfo;
          }
 
@@ -39,9 +39,10 @@ class AgentController extends Controller {
        $data['list'] = $list;
        $this->ajaxReturn($data);
     }
-    public function add(){
+    public function addAgent(){
       $member_info =M('agent_info');
-      
+      $data['memberid'] = $_POST['memberId'];
+
 
 
     }
