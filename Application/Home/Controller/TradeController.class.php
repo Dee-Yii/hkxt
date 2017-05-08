@@ -111,8 +111,6 @@ class TradeController extends Controller {
       $timestart = date("Y-m-d H:i:s",strtotime($_POST['starTime']));
       $timeend = date("Y-m-d H:i:s",strtotime($_POST['endTime']));
       $map['uid'] = $_POST['userId'];
-      // 操盘类型 buy_sell            	int(11)     	YES        NULL           	买卖方向（买入卖出）
-      $map['uid'] = 5;
       if(!empty($_POST['buySell'])){
         $map['buy_sell'] = $_POST['buySell'];
       }
@@ -134,8 +132,39 @@ class TradeController extends Controller {
       }
 
       $data['list'] = $list;
-      //s$data['from'] ='$Page->';
-          $this->ajaxReturn($data);
+      $this->ajaxReturn($data);
+    }
+    public function getgoodlist(){
+      $actuals_good =M('actuals_goods');
+      $res = $actuals_good->select();
+      $this->ajaxReturn($res);
+    }
+    public function getopentradelist(){
+      $pageNum = isset($_POST['pageNum'])?$_POST['pageNum']:5;
+      $page = isset($_POST['page'])?$_POST['page']:1;
+      $timestart = date("Y-m-d H:i:s",strtotime($_POST['starTime']));
+      $timeend = date("Y-m-d H:i:s",strtotime($_POST['endTime']));
+      $map['code_id'] = $_POST['id']?$_POST['id']:10;
+
+      if(!empty($_POST['startTime']) || !empty($_POST['endTime'])){
+        $map['open_position_time '] = array(array('gt','$timestart'),arry('lt','timeend')) ;
+      }
+      $Trades   = M('current_trades_record');
+
+      $list = $Trades->where($map)->order('open_position_time desc')->page($page,$pageNum)->select();//获取分页数据
+      foreach($list as $key=>$value){
+        $actualMap['id'] = $value['code_id'];
+        $userMap['uid'] = $value['uid'];
+        $list[$key]['actaulInfo'] = M('actuals_goods')->where($actaulMap)->find();
+        $list[$key]['close_position_time'] = date("Y-m-d H:i:s",$value['close_position_time']);
+        $list[$key]['userInfo'] = M('user_info')->where($userMap)->find();
+
+      }
+
+      $data['list'] = $list;
+      $this->ajaxReturn($data);
+
+
     }
     public function exceFile(){
       import("Org.Util.PHPExcel");
