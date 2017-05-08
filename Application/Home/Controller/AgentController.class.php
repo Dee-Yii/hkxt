@@ -40,11 +40,78 @@ class AgentController extends Controller {
        $this->ajaxReturn($data);
     }
     public function add(){
-      $member_info =M('agent_info');
-      
+        $agent_info =M('agent_info');
+        $data['memberid'] = $_POST['memberId'];
+        $data['uid'] = $_POST['uid'];
+        $data['phone'] = $_POST['phone'];
+        $data['nickname'] = $_POST['nickname'];
+        $res = $agent_info->add($data);
 
+        if($res){
+            $return = array(
+                'code'=>0,
+                'success'=>'success'
+            );
+
+        }else{
+            $return = array(
+                'code'=>-1,
+                'success'=>'fail'
+            );
+        }
+        $this->ajaxReturn($return);
 
     }
+   public function updateStatus(){
+       $ids=$_POST['code'];
+       $data['status'] = !empty($_POST['status'])?$_POST['status']:0;
+       foreach ($ids as $key => $value) {
+           $map['code'] = $value;
+           M('member_info')->where($map)->save($data);
+
+       }
+       $return = array(
+           'code'=>0,
+           'message'=>'success',
+
+       );
+       $this->ajaxReturn($return);
+   }
+    public function updateVerfiy(){
+        $map['code']=$_POST['code'];
+        $data['verify'] = $_POST['status'];
+        M('member_info')->where($map)->save($data);
+        $return = array(
+            'code'=>0,
+            'message'=>'success',
+
+        );
+        $this->ajaxReturn($return);
+    }
+    public function del(){
+        $ids=$_POST['code'];
+
+        foreach ($ids as $key => $value) {
+            $map['code'] = $value;
+            $res =M('member_info')->where($map)->delete();
+
+        }
+        if($res) {
+            $return = array(
+                'code' => 0,
+                'message' => 'success',
+
+            );
+        }else{
+            $return = array(
+                'code' => -1,
+                'message' => 'fail',
+
+            );
+        }
+        $this->ajaxReturn($return);
+    }
+
     public function exceFile(){
       import("Org.Util.PHPExcel");
       import("Org.Util.PHPExcel.Worksheet.Drawing");
