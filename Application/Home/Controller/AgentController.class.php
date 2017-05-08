@@ -45,12 +45,6 @@ class AgentController extends Controller {
       $data['phone'] = $_POST['phone'];
       $data['status'] = 0;
       $data['verify'] = 0;
-      $data['memberid'] = '4';
-      $data['uid'] = 'asdsad';
-      $data['nickname'] = '爱死';
-      $data['phone'] = '123123';
-      $data['status'] = 0;
-      $data['verify'] = 0;
       $res = $member_info->add($data);
 
       if($res){
@@ -110,7 +104,7 @@ class AgentController extends Controller {
       $this->ajaxReturn($return);
     }
     public function del(){
-      $id = $_POST['code'];
+      $id = $_POST['id'];
 
       foreach ($id as $key => $value) {
         # code...
