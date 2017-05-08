@@ -39,13 +39,20 @@ class AgentController extends Controller {
     }
     public function add(){
       $member_info =M('agent_info');
-      $data['memberid'] = $_POST['memberId'];
+      $data['memberid'] = $_POST['memberid'];
       $data['uid'] = $_POST['uid'];
       $data['nickname'] = $_POST['nickname'];
       $data['phone'] = $_POST['phone'];
       $data['status'] = 0;
       $data['verify'] = 0;
+      $data['memberid'] = '4';
+      $data['uid'] = 'asdsad';
+      $data['nickname'] = '爱死';
+      $data['phone'] = '123123';
+      $data['status'] = 0;
+      $data['verify'] = 0;
       $res = $member_info->add($data);
+    
       if($res){
         $return = array(
           'code'=>0,
@@ -89,6 +96,28 @@ class AgentController extends Controller {
         # code...
         $map['code'] = $id;
         $res = M('agent_info')->where($map)->save($data);
+      if($res){
+        $return = array(
+          'code'=>0,
+          'message'=>'success',
+        );
+      }else{
+        $return =array(
+          'code'=>-1,
+          'message'=>'fail',
+      );
+    }
+      $this->ajaxReturn($return);
+    }
+    public function del(){
+      $id = $_POST['code'];
+
+      foreach ($id as $key => $value) {
+        # code...
+        $map['code'] = $value;
+        $res = M('agent_info')->where($map)->delete();
+
+      }
       if($res){
         $return = array(
           'code'=>0,
