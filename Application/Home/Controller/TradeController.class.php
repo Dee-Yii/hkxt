@@ -86,11 +86,11 @@ class TradeController extends Controller {
       $userId = isset($_POST['userId'])?$_POST['userId']:1;
       $timestart = date("Y-m-d H:i:s",strtotime($_POST['starTime']));
       $timeend = date("Y-m-d H:i:s",strtotime($_POST['endTime']));
-      $map['uid'] = 5;
+      $map['uid'] = $userId;
       if(!empty($_POST['starTime']) || !empty($_POST['endTime'])){
         $map['handleTime'] = array(array('gt','$timestart'),arry('lt','timeend')) ;
       }
-      $userId = 9;
+
       $Trades   = M('user_withdraw');
       $count = $Trades->where($map)->count();// 查询满足要求的总记录数
       $list = $Trades->where($map)->order('handleTime ')->page($page,$pageNum)->select();//获取分页数据
@@ -147,11 +147,12 @@ class TradeController extends Controller {
       $map['code_id'] = $_POST['id']?$_POST['id']:10;
 
       if(!empty($_POST['startTime']) || !empty($_POST['endTime'])){
-        $map['open_position_time '] = array(array('gt','$timestart'),arry('lt','timeend')) ;
+        $map['close_position_time '] = array(array('gt','$timestart'),arry('lt','timeend')) ;
       }
       $Trades   = M('current_trades_record');
+      $count = $Trades->where($map)->count();// 查询满足要求的总记录数
+      $list = $Trades->where($map)->order('close_position_time desc')->page($page,$pageNum)->select();//获取分页数据
 
-      $list = $Trades->where($map)->order('open_position_time desc')->page($page,$pageNum)->select();//获取分页数据
       foreach($list as $key=>$value){
         $actualMap['id'] = $value['code_id'];
         $userMap['uid'] = $value['uid'];
@@ -160,11 +161,14 @@ class TradeController extends Controller {
         $list[$key]['userInfo'] = M('user_info')->where($userMap)->find();
 
       }
-
+      $Page       = new \Think\Page($count,$pageNum);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+      $data['totalPages'] = $count;
+      $data['pageNum'] =$pageNum;
+      $data['page'] = $page;
+      $data['totalPages'] = ceil($count/$pageNum);
       $data['list'] = $list;
-      $this->ajaxReturn($data);
-
-
+      //s$data['from'] ='$Page->';
+          $this->ajaxReturn($data);
     }
     public function exceFile(){
       import("Org.Util.PHPExcel");
