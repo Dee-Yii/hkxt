@@ -97,15 +97,16 @@ class MemberController extends Controller {
     }
     public function updateMember(){
       $member_info =M('member_info');
-      $memberid = $_POST['memberId'];
-      $name = $_POST['name'];
-      $mark = $_POST['mark'];
-      $superMemberid = $_POST['superMemberid'];
-      $type = $_POST['type'];
-      $tel= $_POST['tel'];
-      $phone = $_POST['phone'];//机构名称
-      $map['memberid'] = $_POST['memberId'];
-      $res = $member_info->where($map)->update($_POST);
+
+      $data['name'] = $_POST['name'];
+      $data['mark'] = $_POST['mark'];
+      $data['superMemberid'] = $_POST['superMemberid'];
+      $data['type'] = $_POST['type'];
+      $data['tel']= $_POST['tel'];
+      $data['phone'] = $_POST['phone'];//机构名称
+      $map['memberid'] = $_POST['memberid'];
+      $res = $member_info->where($map)->save($_POST);
+      
       if($res){
         $return =  array(
           'code'=>0,
