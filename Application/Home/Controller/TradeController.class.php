@@ -24,7 +24,7 @@ class TradeController extends Controller {
       $timeend = date("Y-m-d H:i:s",strtotime($_POST['endTime']));
       $map['uid'] = $_POST['userId'];
       // 操盘类型 buy_sell            	int(11)     	YES        NULL           	买卖方向（买入卖出）
-      $map['uid'] = 5;
+      $map['uid'] = $userId;
       if(!empty($_POST['buySell'])){
         $map['buy_sell'] = $_POST['buySell'];
       }
@@ -60,11 +60,11 @@ class TradeController extends Controller {
       $userId = isset($_POST['userId'])?$_POST['userId']:1;
       $timestart = date("Y-m-d H:i:s",strtotime($_POST['starTime']));
       $timeend = date("Y-m-d H:i:s",strtotime($_POST['endTime']));
-      $map['uid'] = 5;
+      $map['uid'] = $userId;
       if(!empty($_POST['starTime']) || !empty($_POST['endTime'])){
         $map['depositTime '] = array(array('gt','$timestart'),arry('lt','timeend')) ;
       }
-      $userId = 5;
+
       $Trades   = M('recharge_info');
       $count = $Trades->where($map)->count();// 查询满足要求的总记录数
       $list = $Trades->where($map)->order('depositTime desc')->page($page,$pageNum)->select();//获取分页数据
@@ -142,12 +142,14 @@ class TradeController extends Controller {
     public function getopentradelist(){
       $pageNum = isset($_POST['pageNum'])?$_POST['pageNum']:5;
       $page = isset($_POST['page'])?$_POST['page']:1;
+      $_POST['starTime'] = "2017-02-11";
+      $_POST['endTime'] = "2017-02-20";
       $timestart = date("Y-m-d H:i:s",strtotime($_POST['starTime']));
       $timeend = date("Y-m-d H:i:s",strtotime($_POST['endTime']));
       $map['code_id'] = $_POST['id']?$_POST['id']:10;
 
       if(!empty($_POST['startTime']) || !empty($_POST['endTime'])){
-        $map['close_position_time '] = array(array('gt','$timestart'),arry('lt','timeend')) ;
+        $map['close_position_time '] = array(array('gt','$timestart'),array('lt','timeend')) ;
       }
       $Trades   = M('current_trades_record');
       $count = $Trades->where($map)->count();// 查询满足要求的总记录数
@@ -193,6 +195,34 @@ class TradeController extends Controller {
 
       }
       $Page       = new \Think\Page($count,$pageNum);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+      $data['totalPages'] = $count;
+      $data['pageNum'] =$pageNum;
+      $data['page'] = $page;
+      $data['totalPages'] = ceil($count/$pageNum);
+      $data['list'] = $list;
+      //s$data['from'] ='$Page->';
+          $this->ajaxReturn($data);
+    }
+    public function getouts(){
+      $pageNum = isset($_POST['pageNum'])?$_POST['pageNum']:5;
+      $page = isset($_POST['page'])?$_POST['page']:1;
+
+      $timestart = date("Y-m-d H:i:s",strtotime($_POST['starTime']));
+      $timeend = date("Y-m-d H:i:s",strtotime($_POST['endTime']));
+
+      if(!empty($_POST['starTime']) || !empty($_POST['endTime'])){
+        $map['handleTime'] = array(array('gt','$timestart'),arry('lt','timeend')) ;
+      }
+
+      $Trades   = M('user_withdraw');
+      $count = $Trades->where($map)->count();// 查询满足要求的总记录数
+      $list = $Trades->where($map)->order('handleTime ')->page($page,$pageNum)->select();//获取分页数据
+      $Page       = new \Think\Page($count,$pageNum);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+      foreach ($list as $key => $value) {
+        # code...
+        $userMap['uid'] = $value['uid'];
+        $list[$key]['userInfo'] = M('user_info')->where($userMap)->find();
+      }
       $data['totalPages'] = $count;
       $data['pageNum'] =$pageNum;
       $data['page'] = $page;
