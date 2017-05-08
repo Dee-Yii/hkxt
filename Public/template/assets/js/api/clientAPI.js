@@ -79,7 +79,7 @@ define(["jquery"], function ($) {
          */
         getCCList: function (data, cb) {
             data.pageNum = 10;
-            $.post(this.baseRequestUrl + "/trade/keep", data, function (result) {
+            $.post(this.baseRequestUrl + "/trade/getopentradelist", data, function (result) {
                 cb(result);
             })
         },

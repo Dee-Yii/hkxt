@@ -17,7 +17,7 @@ define([
         render: function () {
             this.initGoodsList();
             utils.initDatePicker();
-            // this.fnGetList({},true);
+            this.fnGetList({},true);
         },
         bindEvents: function () {
             this.onSearch();
