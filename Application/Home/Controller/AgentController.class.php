@@ -24,9 +24,7 @@ class AgentController extends Controller {
        $count = $agent_infoo->where($map)->count();// 查询满足要求的总记录数
        $list = $agent_infoo->where($map)->page($page,$pageNum)->select();//获取分页数据
        foreach ($list as $key => $value) {
-         # code...
-         $list[$key]['memberInfo'] = "";
-           $map['memberid'] = 1;
+            $map['memberid'] = $value['memberid'];
            $MemberInfo = $member_info->where($map)->find();
            $list[$key]['memberInfo'] = $MemberInfo;
          }
@@ -39,86 +37,71 @@ class AgentController extends Controller {
        $data['list'] = $list;
        $this->ajaxReturn($data);
     }
-<<<<<<< HEAD
-    public function addAgent(){
+    public function add(){
       $member_info =M('agent_info');
       $data['memberid'] = $_POST['memberId'];
-
-=======
-    public function add(){
-        $agent_info =M('agent_info');
-        $data['memberid'] = $_POST['memberId'];
-        $data['uid'] = $_POST['uid'];
-        $data['phone'] = $_POST['phone'];
-        $data['nickname'] = $_POST['nickname'];
-        $res = $agent_info->add($data);
->>>>>>> 63376eca3cc7982c39a29e9d4879a97a390514c7
-
-        if($res){
-            $return = array(
-                'code'=>0,
-                'success'=>'success'
-            );
-
-        }else{
-            $return = array(
-                'code'=>-1,
-                'success'=>'fail'
-            );
-        }
-        $this->ajaxReturn($return);
-
-    }
-   public function updateStatus(){
-       $ids=$_POST['code'];
-       $data['status'] = !empty($_POST['status'])?$_POST['status']:0;
-       foreach ($ids as $key => $value) {
-           $map['code'] = $value;
-           M('member_info')->where($map)->save($data);
-
-       }
-       $return = array(
-           'code'=>0,
-           'message'=>'success',
-
-       );
-       $this->ajaxReturn($return);
-   }
-    public function updateVerfiy(){
-        $map['code']=$_POST['code'];
-        $data['verify'] = $_POST['status'];
-        M('member_info')->where($map)->save($data);
+      $data['uid'] = $_POST['uid'];
+      $data['nickname'] = $_POST['nickname'];
+      $data['phone'] = $_POST['phone'];
+      $data['status'] = 0;
+      $data['verify'] = 0;
+      $res = $member_info->add($data);
+      if($res){
         $return = array(
-            'code'=>0,
-            'message'=>'success',
-
+          'code'=>0,
+          'message'=>'success',
         );
-        $this->ajaxReturn($return);
+      }else{
+        $return =array(
+          'code'=>-1,
+          'message'=>'fail',
+      );
     }
-    public function del(){
-        $ids=$_POST['code'];
+      $this->ajaxReturn($return);
 
-        foreach ($ids as $key => $value) {
-            $map['code'] = $value;
-            $res =M('member_info')->where($map)->delete();
 
-        }
-        if($res) {
-            $return = array(
-                'code' => 0,
-                'message' => 'success',
-
-            );
-        }else{
-            $return = array(
-                'code' => -1,
-                'message' => 'fail',
-
-            );
-        }
-        $this->ajaxReturn($return);
     }
+    public function updateStatus(){
+      $id = $_POST['code'];
+      $data['status'] = $_POST['status'];
+      foreach ($id as $key => $value) {
+        # code...
+        $map['code'] = $value;
+        $res = M('agent_info')->where($map)->save($data);
 
+      }
+      if($res){
+        $return = array(
+          'code'=>0,
+          'message'=>'success',
+        );
+      }else{
+        $return =array(
+          'code'=>-1,
+          'message'=>'fail',
+      );
+    }
+      $this->ajaxReturn($return);
+    }
+    public function updateVerify(){
+      $id = $_POST['code'];
+      $data['verify'] = $_POST['verify'];
+        # code...
+        $map['code'] = $id;
+        $res = M('agent_info')->where($map)->save($data);
+      if($res){
+        $return = array(
+          'code'=>0,
+          'message'=>'success',
+        );
+      }else{
+        $return =array(
+          'code'=>-1,
+          'message'=>'fail',
+      );
+    }
+      $this->ajaxReturn($return);
+    }
     public function exceFile(){
       import("Org.Util.PHPExcel");
       import("Org.Util.PHPExcel.Worksheet.Drawing");
