@@ -79,18 +79,25 @@ class AdminuserController extends Controller {
     }
     public function delUser(){
         $adminUser = M('admin_user');
-        $map = json_decode($_POST['id']);
-        $map =$arr;
-        foreach($map as $key=>$value){
-          $adminUser->where("id= $value")->delete();
+        $id = $_POST['id'];
+        foreach($id as $key=>$value){
+            $map['id'] = $value;
+            $res = $adminUser->where("id= $value")->delete();
 
         }
-        $return =  array(
-          'code'=>0,
-          'message'=>'success',
+        if($res) {
+            $return = array(
+                'code' => 0,
+                'message' => 'success',
 
-        );
-        $this->ajaxReturn($return);
+            );
+        }else{
+            $return = array(
+                'code' => -1,
+                'message' => 'fail',
+
+            );
+        }
     }
     public function  updateUser(){
       $adminUser = M('admin_user');
