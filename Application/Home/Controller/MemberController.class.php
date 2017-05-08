@@ -41,7 +41,7 @@ class MemberController extends Controller {
     }
     public function getlistall(){
        $member_info =M('member_info');
-       $list = $member_info->where($map)->select();//获取分页数据
+       $list = $member_info->where()->select();//获取分页数据
        foreach ($list as $key => $value) {
          # code...
          $list[$key]['superMemberInfo'] = "";
@@ -97,15 +97,14 @@ class MemberController extends Controller {
     }
     public function updateMember(){
       $member_info =M('member_info');
-      $memberid = $_POST['memberId'];
-      $name = $_POST['name'];
-      $mark = $_POST['mark'];
-      $superMemberid = $_POST['superMemberid'];
-      $type = $_POST['type'];
-      $tel= $_POST['tel'];
-      $phone = $_POST['phone'];//机构名称
-      $map['memberid'] = $_POST['memberId'];
-      $res = $member_info->where($map)->update($_POST);
+      $data['name'] = 1;
+      $data['mark'] = 1;
+      $data['superMemberid'] = 1;
+      $data['type'] = 1;
+      $data['tel']= 1;
+      $data['phone'] = 1;
+      $map['memberid'] = 2;
+      $res = $member_info->where($map)->save($data);
       if($res){
         $return =  array(
           'code'=>0,
@@ -120,12 +119,20 @@ class MemberController extends Controller {
       $this->ajaxReturn($return);
     }
     public function updateStatus(){
+<<<<<<< HEAD
       $ids=$_POST['id'];
       $data['status'] = $_POST['status'];
       foreach ($ids as $key => $value) {
         # code...
           $map['memberid'] = $value;
           $res = M('member_info')->where($map)->save($data);
+=======
+      $ids=$_POST['memberId'];
+      $data['status'] = !empty($_POST['status'])?$_POST['status']:1;
+      foreach ($ids as $key => $value) {
+          $map['memberid'] = $value;
+          M('member_info')->where($map)->save($data);
+>>>>>>> 63376eca3cc7982c39a29e9d4879a97a390514c7
 
         
       }
