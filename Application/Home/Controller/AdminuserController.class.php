@@ -13,7 +13,7 @@ class AdminuserController extends Controller {
       parent::__construct();
       if(!session('user')){
         //$this->ajaxReturn(array('code'=>-1,'message'=>'fail','data'=>'not login'));
-        
+
       }
     }
 
@@ -98,6 +98,7 @@ class AdminuserController extends Controller {
 
             );
         }
+        $this->ajaxReturn($return);
     }
     public function  updateUser(){
       $adminUser = M('admin_user');
