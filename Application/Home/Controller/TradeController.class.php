@@ -142,18 +142,18 @@ class TradeController extends Controller {
     public function getopentradelist(){
       $pageNum = isset($_POST['pageNum'])?$_POST['pageNum']:5;
       $page = isset($_POST['page'])?$_POST['page']:1;
-      $timestart = date("Y-m-d H:i:s",strtotime($_POST['starTime']));
-      $timeend = date("Y-m-d H:i:s",strtotime($_POST['endTime']));
+      $timestart = strtotime($_POST['starTime']);
+      $timeend = strtotime($_POST['endTime']);
       if(!empty($_POST['id'])){
         $map['code_id'] = $_POST['id'];
       }
       if(!empty($_POST['startTime']) || !empty($_POST['endTime'])){
-        $map['close_position_time '] = array(array('gt','$timestart'),array('lt','timeend')) ;
+        $map['close_position_time '] = array(array('gt',"$timestart"),array('lt',"$timeend")) ;
       }
       $Trades   = M('current_trades_record');
       $count = $Trades->where($map)->count();// 查询满足要求的总记录数
       $list = $Trades->where($map)->order('close_position_time desc')->page($page,$pageNum)->select();//获取分页数据
-
+    
       foreach($list as $key=>$value){
         $actualMap['id'] = $value['code_id'];
         $userMap['uid'] = $value['uid'];
@@ -168,7 +168,9 @@ class TradeController extends Controller {
       $data['page'] = $page;
       $data['totalPages'] = ceil($count/$pageNum);
       $data['list'] = $list;
-      //s$data['from'] ='$Page->';
+      if($data['list'] ==null){
+
+      }
           $this->ajaxReturn($data);
     }
     public function getclosetradelist(){
