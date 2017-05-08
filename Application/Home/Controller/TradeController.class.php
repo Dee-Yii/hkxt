@@ -142,12 +142,11 @@ class TradeController extends Controller {
     public function getopentradelist(){
       $pageNum = isset($_POST['pageNum'])?$_POST['pageNum']:5;
       $page = isset($_POST['page'])?$_POST['page']:1;
-      $_POST['starTime'] = "2017-02-11";
-      $_POST['endTime'] = "2017-02-20";
       $timestart = date("Y-m-d H:i:s",strtotime($_POST['starTime']));
       $timeend = date("Y-m-d H:i:s",strtotime($_POST['endTime']));
-      $map['code_id'] = $_POST['id']?$_POST['id']:10;
-
+      if(!empty($_POST['id'])){
+        $map['code_id'] = $_POST['id'];
+      }
       if(!empty($_POST['startTime']) || !empty($_POST['endTime'])){
         $map['close_position_time '] = array(array('gt','$timestart'),array('lt','timeend')) ;
       }
