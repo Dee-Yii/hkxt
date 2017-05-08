@@ -94,18 +94,16 @@ define([
                 if ($this.hasClass("disabled")) return;
                 $this.addClass("disabled");
                 var data = {
-                    memeberId: oForm.find('select').val(),
-                    uid: oForm.find('[name=username]').val(),
-                    password: oForm.find('[name=password]').val(),
-                    nickname: oForm.find('[name=nickname]').val(),
-                    // role: oForm.find('[name=roleType]').val()
+                    memberid: oForm.find('select').val(),
+                    uid: oForm.find('[name=id]').val(),
+                    nickname: oForm.find('[name=name]').val(),
+                    phone: oForm.find('[name=phone]').val()
                 };
                 accountAPI.addBroker(data,function (result) {
                     if(result.code==0){
                         addBrokerModal.close();
                         layer.msg("新建成功");
                         _this.fnGetList({},true);
-
                     }else{
                         layer.msg("新建失败");
                     }
@@ -126,11 +124,10 @@ define([
                 $this.addClass("disabled");
                 var data = {
                     id: userId,
-                    memeberId: oForm.find('select').val(),
+                    memberid: oForm.find('select').val(),
                     uid: oForm.find('[name=username]').val(),
                     password: oForm.find('[name=password]').val(),
-                    nickname: oForm.find('[name=nickname]').val(),
-                    // role: oForm.find('[name=roleType]').val()
+                    nickname: oForm.find('[name=nickname]').val()
                 };
                 accountAPI.checkBroker(data,function (result) {
                     if(result.code==0){

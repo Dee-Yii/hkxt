@@ -122,7 +122,7 @@ define(["jquery"], function ($) {
          * 经纪人管理-新建机构
          */
         addBroker: function (data, cb) {
-            $.post(this.baseRequestUrl + "/addUser.php", data, function (result) {
+            $.post(this.baseRequestUrl + "/agent/add", data, function (result) {
                 cb(result);
             })
         },
@@ -130,7 +130,7 @@ define(["jquery"], function ($) {
          * 经纪人管理-删除
          */
         delBroker: function (data, cb) {
-            $.post(this.baseRequestUrl + "/delBroker.php", data, function (result) {
+            $.post(this.baseRequestUrl + "/agent/del", data, function (result) {
                 cb(result);
             })
         },
@@ -138,7 +138,7 @@ define(["jquery"], function ($) {
          * 经纪人管理-审核
          */
         checkBroker: function (data, cb) {
-            $.post(this.baseRequestUrl + "/changeBroker.php", data, function (result) {
+            $.post(this.baseRequestUrl + "/agent/updateVerify", data, function (result) {
                 cb(result);
             })
         },
@@ -146,7 +146,7 @@ define(["jquery"], function ($) {
          * 经纪人管理-启用/禁用
          */
         updateBrokerStatus: function (data, cb) {
-            $.post(this.baseRequestUrl + "/adminuser/updateStatus", data, function (result) {
+            $.post(this.baseRequestUrl + "/agent/updateStatus", data, function (result) {
                 cb(result);
             })
         },

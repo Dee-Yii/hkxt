@@ -152,8 +152,8 @@ define([
                 };
                 accountAPI.changeUser(data,function (result) {
                     if(result.code==0){
-                        addUserModal.close();
-                        layer.msg("新建成功");
+                        changeUserModal.close();
+                        layer.msg("修改成功");
                         _this.fnGetList({},true);
                     }else{
                         layer.msg("新建失败");
