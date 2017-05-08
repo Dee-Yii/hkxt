@@ -72,7 +72,7 @@ class MemberController extends Controller {
       $data['tel'] = $tel;
       $data['phone'] = $phone;
       $data['status'] =$status;
-    
+
       $res = $member_info->add($data);
 
       if($res){
@@ -119,18 +119,36 @@ class MemberController extends Controller {
       $this->ajaxReturn($return);
     }
     public function updateStatus(){
+<<<<<<< HEAD
+      $ids=$_POST['id'];
+      $data['status'] = $_POST['status'];
+      foreach ($ids as $key => $value) {
+        # code...
+          $map['memberid'] = $value;
+          $res = M('member_info')->where($map)->save($data);
+=======
       $ids=$_POST['memberId'];
       $data['status'] = !empty($_POST['status'])?$_POST['status']:1;
       foreach ($ids as $key => $value) {
           $map['memberid'] = $value;
           M('member_info')->where($map)->save($data);
+>>>>>>> 63376eca3cc7982c39a29e9d4879a97a390514c7
 
+        
       }
+
+      if($res){
       $return = array(
         'code'=>0,
         'message'=>'success',
 
       );
+    }else{
+      $return =array(
+        'code'=>-1,
+        'message'=>'fail',
+      );
+    }
       $this->ajaxReturn($return);
 
     }

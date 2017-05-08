@@ -27,7 +27,7 @@ class AgentController extends Controller {
          # code...
          $list[$key]['memberInfo'] = "";
            $map['memberid'] = 1;
-           $MemberInfo = $member_info->where($map)->select();
+           $MemberInfo = $member_info->where($map)->find();
            $list[$key]['memberInfo'] = $MemberInfo;
          }
 
@@ -39,6 +39,12 @@ class AgentController extends Controller {
        $data['list'] = $list;
        $this->ajaxReturn($data);
     }
+<<<<<<< HEAD
+    public function addAgent(){
+      $member_info =M('agent_info');
+      $data['memberid'] = $_POST['memberId'];
+
+=======
     public function add(){
         $agent_info =M('agent_info');
         $data['memberid'] = $_POST['memberId'];
@@ -46,6 +52,7 @@ class AgentController extends Controller {
         $data['phone'] = $_POST['phone'];
         $data['nickname'] = $_POST['nickname'];
         $res = $agent_info->add($data);
+>>>>>>> 63376eca3cc7982c39a29e9d4879a97a390514c7
 
         if($res){
             $return = array(
