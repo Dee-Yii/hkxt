@@ -2,10 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ec3f7e2-c485-4fc7-b698-b2948dadeda7" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/template/assets/css/qrCode.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/template/assets/css/rank.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/template/assets/css/recentData.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/template/assets/css/redPacket.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/template/assets/css/reward.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/template/assets/css/setCommission.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/template/assets/css/taskInfo.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/template/assets/css/userCenter.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/template/assets/css/userStatus.min.css" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/View/accountManage/brokerManage.html" afterPath="$PROJECT_DIR$/Application/Home/View/accountManage/brokerManage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/View/accountManage/orgManage.html" afterPath="$PROJECT_DIR$/Application/Home/View/accountManage/orgManage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/template/assets/js/api/accountAPI.js" afterPath="$PROJECT_DIR$/Public/template/assets/js/api/accountAPI.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/template/assets/js/page/brokerManage.js" afterPath="$PROJECT_DIR$/Public/template/assets/js/page/brokerManage.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -92,17 +99,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="brokerManage.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="brokerManage.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Application/Home/View/accountManage/brokerManage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
+            <state relative-caret-position="510">
+              <caret line="49" column="33" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jquery.datetimepicker.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="jquery.datetimepicker.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Public/template/assets/js/vendor/jquery.datetimepicker.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="345">
@@ -125,13 +132,13 @@
       <file leaf-file-name="brokerManage.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Public/template/assets/js/page/brokerManage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-175">
-              <caret line="189" column="39" selection-start-line="189" selection-start-column="39" selection-end-line="189" selection-end-column="39" />
+            <state relative-caret-position="97">
+              <caret line="118" column="12" selection-start-line="118" selection-start-column="12" selection-end-line="118" selection-end-column="12" />
               <folding>
                 <element signature="e#816#1321#0" expanded="false" />
                 <element signature="e#922#991#0" expanded="false" />
-                <element signature="e#6446#6537#0" expanded="false" />
-                <element signature="e#6563#6676#0" expanded="false" />
+                <element signature="e#6445#6536#0" expanded="false" />
+                <element signature="e#6562#6675#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -188,9 +195,9 @@
         <option value="$PROJECT_DIR$/Public/template/assets/js/libs/config.js" />
         <option value="$PROJECT_DIR$/Application/Home/View/accountManage/userManage.html" />
         <option value="$PROJECT_DIR$/Public/template/assets/js/api/accountAPI.js" />
+        <option value="$PROJECT_DIR$/Application/Home/View/accountManage/orgManage.html" />
         <option value="$PROJECT_DIR$/Public/template/assets/js/page/brokerManage.js" />
         <option value="$PROJECT_DIR$/Application/Home/View/accountManage/brokerManage.html" />
-        <option value="$PROJECT_DIR$/Application/Home/View/accountManage/orgManage.html" />
       </list>
     </option>
   </component>
@@ -711,12 +718,12 @@
       <updated>1493870239080</updated>
       <workItem from="1493870241893" duration="6129000" />
       <workItem from="1493890887411" duration="1607000" />
-      <workItem from="1494133058993" duration="20615000" />
+      <workItem from="1494133058993" duration="21021000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28351000" />
+    <option name="totallyTimeSpent" value="28757000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="-148" width="1920" height="1080" extended-state="0" />
@@ -1229,31 +1236,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Public/template/assets/js/page/brokerManage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-175">
-          <caret line="189" column="39" selection-start-line="189" selection-start-column="39" selection-end-line="189" selection-end-column="39" />
-          <folding>
-            <element signature="e#816#1321#0" expanded="false" />
-            <element signature="e#922#991#0" expanded="false" />
-            <element signature="e#6446#6537#0" expanded="false" />
-            <element signature="e#6563#6676#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/View/accountManage/orgManage.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/View/accountManage/brokerManage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
           <folding />
         </state>
       </provider>
@@ -1270,6 +1256,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="78" column="28" selection-start-line="78" selection-start-column="28" selection-end-line="78" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/template/assets/js/page/brokerManage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="118" column="12" selection-start-line="118" selection-start-column="12" selection-end-line="118" selection-end-column="12" />
+          <folding>
+            <element signature="e#816#1321#0" expanded="false" />
+            <element signature="e#922#991#0" expanded="false" />
+            <element signature="e#6445#6536#0" expanded="false" />
+            <element signature="e#6562#6675#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/accountManage/brokerManage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="49" column="33" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="33" />
           <folding />
         </state>
       </provider>

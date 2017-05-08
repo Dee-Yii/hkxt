@@ -116,7 +116,7 @@ define([
         /**
          * 审核经纪人
          */
-        onChange: function () {
+        onCheck: function () {
             var _this = this;
             var btn = $(".checkBrokerModal .remodal-confirm");
             var oForm = $(".checkBrokerModal form");
