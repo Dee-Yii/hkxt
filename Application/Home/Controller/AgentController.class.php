@@ -40,7 +40,26 @@ class AgentController extends Controller {
        $this->ajaxReturn($data);
     }
     public function add(){
-      $member_info =M('agent_info');
+        $agent_info =M('agent_info');
+        $data['memberid'] = $_POST['memberId'];
+        $data['uid'] = $_POST['uid'];
+        $data['phone'] = $_POST['phone'];
+        $data['nickname'] = $_POST['nickname'];
+        $res = $agent_info->add($data);
+        
+        if($res){
+            $return = array(
+                'code'=>0,
+                'success'=>'success'
+            );
+
+        }else{
+            $return = array(
+                'code'=>-1,
+                'success'=>'fail'
+            );
+        }
+        $this->ajaxReturn($return);
       
 
 
