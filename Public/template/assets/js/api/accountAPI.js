@@ -135,26 +135,18 @@ define(["jquery"], function ($) {
             })
         },
         /**
-         * 经纪人管理-修改
+         * 经纪人管理-审核
          */
-        changeBroker: function (data, cb) {
+        checkBroker: function (data, cb) {
             $.post(this.baseRequestUrl + "/changeBroker.php", data, function (result) {
                 cb(result);
             })
         },
         /**
-         * 经纪人管理-启用
+         * 经纪人管理-启用/禁用
          */
-        openBroker: function (data, cb) {
-            $.post(this.baseRequestUrl + "/openBroker.php", data, function (result) {
-                cb(result);
-            })
-        },
-        /**
-         * 经纪人管理-禁用
-         */
-        closeBroker: function (data, cb) {
-            $.post(this.baseRequestUrl + "/closeBroker.php", data, function (result) {
+        updateBrokerStatus: function (data, cb) {
+            $.post(this.baseRequestUrl + "/adminuser/updateStatus", data, function (result) {
                 cb(result);
             })
         },
