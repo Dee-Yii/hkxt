@@ -170,6 +170,37 @@ class TradeController extends Controller {
       //s$data['from'] ='$Page->';
           $this->ajaxReturn($data);
     }
+    public function getclosetradelist(){
+      $pageNum = isset($_POST['pageNum'])?$_POST['pageNum']:5;
+      $page = isset($_POST['page'])?$_POST['page']:1;
+      $timestart = date("Y-m-d H:i:s",strtotime($_POST['starTime']));
+      $timeend = date("Y-m-d H:i:s",strtotime($_POST['endTime']));
+      $map['code_id'] = $_POST['id']?$_POST['id']:10;
+
+      if(!empty($_POST['startTime']) || !empty($_POST['endTime'])){
+        $map['close_position_time '] = array(array('gt','$timestart'),arry('lt','timeend')) ;
+      }
+      $Trades   = M('his_trades_record');
+      $count = $Trades->where($map)->count();// 查询满足要求的总记录数
+      $list = $Trades->where($map)->order('close_position_time desc')->page($page,$pageNum)->select();//获取分页数据
+
+      foreach($list as $key=>$value){
+        $actualMap['id'] = $value['code_id'];
+        $userMap['uid'] = $value['uid'];
+        $list[$key]['actaulInfo'] = M('actuals_goods')->where($actaulMap)->find();
+        $list[$key]['close_position_time'] = date("Y-m-d H:i:s",$value['close_position_time']);
+        $list[$key]['userInfo'] = M('user_info')->where($userMap)->find();
+
+      }
+      $Page       = new \Think\Page($count,$pageNum);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+      $data['totalPages'] = $count;
+      $data['pageNum'] =$pageNum;
+      $data['page'] = $page;
+      $data['totalPages'] = ceil($count/$pageNum);
+      $data['list'] = $list;
+      //s$data['from'] ='$Page->';
+          $this->ajaxReturn($data);
+    }
     public function exceFile(){
       import("Org.Util.PHPExcel");
       import("Org.Util.PHPExcel.Worksheet.Drawing");
