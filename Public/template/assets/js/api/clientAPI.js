@@ -90,7 +90,7 @@ define(["jquery"], function ($) {
          */
         getPCList: function (data, cb) {
             data.pageNum = 10;
-            $.post(this.baseRequestUrl + "/trade/keep", data, function (result) {
+            $.post(this.baseRequestUrl + "/trade/getclosetradelist", data, function (result) {
                 cb(result);
             })
         },

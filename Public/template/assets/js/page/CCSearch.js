@@ -44,9 +44,9 @@ define([
                 var oForm = $(".search-bar");
                 var data = {
                     page: 1,
-                    type: oForm.find("input[name=type]").val(),
-                    superMemberid: oForm.find("input[name=level]").val(),
-                    name: oForm.find("input[name=orgName]").val() || ""
+                    starTime: oForm.find("#dateStart").val(),
+                    endTime: oForm.find("#dateEnd").val(),
+                    id: oForm.find("select[name=goodsName]").val()
                 };
                 _this.fnGetList(data, true);
             });
@@ -58,18 +58,18 @@ define([
             var table = $(".data-container table");
             clientAPI.getCCList(data, function (result) {
                 console.log("获取持仓列表 调用成功!");
-                if (result.list.length == "0") {
+                if (!result.list || result.list.length == "0") {
                     table.find("tbody").empty().html("<tr><td colspan='5'>暂无记录</td></tr>");
                     $(".pagination").hide();
                     return false;
                 }
                 var oTr;
-                $.each(result.list, function (i, value) {
-                    var timeTd = '<td>' + value.code_id + '</td>';
-                    var codeTd = '<td>' + value + '</td>';
-                    var tradeTypeTd = '<td>' + config.tradeType[value.phone] + '</td>';
-                    var amountTd = '<td>' + config.upLevel[value.upLevel] + '</td>';
-                    var clientNameTd = '<td>' + config.upLevel[value.upLevel] + '</td>';
+                $.each(result.list, function (i, v) {
+                    var timeTd = '<td>' + v.close_position_time + '</td>';
+                    var codeTd = '<td>' + v.position_id + '</td>';
+                    var tradeTypeTd = '<td>' + (v.buy_sell == 1 ? '买入':'卖出') + '</td>';
+                    var amountTd = '<td>' + v.open_cost + '</td>';
+                    var clientNameTd = '<td>' + (v.userInfo ? v.userInfo.nickname : "") + '</td>';
                     oTr += '<tr class="fadeIn animated">' + timeTd + codeTd + tradeTypeTd + amountTd + clientNameTd + '</tr>';
                 });
                 table.find("tbody").empty().html(oTr);
