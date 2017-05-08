@@ -120,10 +120,10 @@ class MemberController extends Controller {
     }
     public function updateStatus(){
       $ids=$_POST['memberId'];
-      $data['status'] = !empty($_POST['status'])?$_POST['status']:0;
+      $data['status'] = !empty($_POST['status'])?$_POST['status']:1;
       foreach ($ids as $key => $value) {
-        # code...
-          M('member_info')->where("id= $value")->save($data);
+          $map['memberid'] = $value;
+          M('member_info')->where($map)->save($data);
 
       }
       $return = array(
