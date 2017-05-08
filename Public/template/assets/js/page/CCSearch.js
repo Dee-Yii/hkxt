@@ -15,17 +15,41 @@ define([
             this.bindEvents();
         },
         render: function () {
-            this.initEventBind();
+            this.initGoodsList();
+            utils.initDatePicker();
             // this.fnGetList({},true);
         },
         bindEvents: function () {
             this.onSearch();
         },
-        initEventBind: function () {
-            utils.initDatePicker();
+        initGoodsList: function () {
+            var oSelect = $("select[name=goodsName]");
+            var optionStr = '<option value="">商品名称</option>';
+            var data = {
+                pageNum: '',
+                page: ''
+            };
+            clientAPI.getGoodsList(data, function (result) {
+                console.log('商品列表 调用成功！');
+                $.each(result, function (i, v) {
+                    optionStr += '<option value="' + v.id + '">' + v.name + '</option>';
+                });
+                oSelect.html(optionStr);
+            });
         },
-        onSearch: function () {
 
+        onSearch: function () {
+            var _this = this;
+            $(".J_search").on("click", function () {
+                var oForm = $(".search-bar");
+                var data = {
+                    page: 1,
+                    type: oForm.find("input[name=type]").val(),
+                    superMemberid: oForm.find("input[name=level]").val(),
+                    name: oForm.find("input[name=orgName]").val() || ""
+                };
+                _this.fnGetList(data, true);
+            });
 
         },
 
