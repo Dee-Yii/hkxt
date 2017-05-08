@@ -181,11 +181,11 @@ define([
                 }
                 var data={
                     id: idArr,
-                    status: $(this).hasClass('open-i') ? 0 : 1
+                    status: $(this).hasClass('open-i') ? 1 : 0
                 };
 
                 accountAPI.updateBrokerStatus(data,function (result) {
-                    var text = data.status === 0 ? '启用成功' : '禁用成功';
+                    var text = data.status === 1 ? '启用成功' : '禁用成功';
                     if(result.code == 0){
                         layer.msg(text);
                         _this.fnGetList({}, true);
