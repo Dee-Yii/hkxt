@@ -67,10 +67,11 @@ define([
                 $.each(result.list, function (i, v) {
                     var timeTd = '<td>' + v.close_position_time + '</td>';
                     var codeTd = '<td>' + v.tid + '</td>';
+                    var goodsNameTd = '<td>' + v.name + '</td>';
                     var tradeTypeTd = '<td>' + (v.buy_sell == 1 ? '买入':'卖出') + '</td>';
                     var amountTd = '<td>' + v.open_cost + '</td>';
                     var clientNameTd = '<td>' + (v.userInfo ? v.userInfo.nickname : "") + '</td>';
-                    oTr += '<tr class="fadeIn animated">' + timeTd + codeTd + tradeTypeTd + amountTd + clientNameTd + '</tr>';
+                    oTr += '<tr class="fadeIn animated">' + timeTd + codeTd + goodsNameTd + tradeTypeTd + amountTd + clientNameTd + '</tr>';
                 });
                 table.find("tbody").empty().html(oTr);
 

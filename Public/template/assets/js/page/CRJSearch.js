@@ -67,10 +67,11 @@ define([
                 $.each(result.list, function (i, value) {
                     var timeTd = '<td>' + value.code_id + '</td>';
                     var codeTd = '<td>' + value + '</td>';
+                    var goodsNameTd = '<td>' + v.name + '</td>';
                     var tradeTypeTd = '<td>' + config.tradeType[value.phone] + '</td>';
                     var amountTd = '<td>' + config.upLevel[value.upLevel] + '</td>';
                     var clientNameTd = '<td>' + config.upLevel[value.upLevel] + '</td>';
-                    oTr += '<tr class="fadeIn animated">' + timeTd + codeTd + tradeTypeTd + amountTd + clientNameTd + '</tr>';
+                    oTr += '<tr class="fadeIn animated">' + timeTd + codeTd + goodsNameTd + tradeTypeTd + amountTd + clientNameTd + '</tr>';
                 });
                 table.find("tbody").empty().html(oTr);
 
