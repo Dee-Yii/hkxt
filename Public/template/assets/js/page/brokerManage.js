@@ -10,6 +10,9 @@ define([
     var addBrokerModal = $('[data-remodal-id=addBrokerModal]').remodal();
     var checkBrokerModal = $('[data-remodal-id=checkBrokerModal]').remodal();
     var body = $("body");
+    var brokerId;
+
+
     var page = {
         init: function () {
             this.render();
@@ -50,9 +53,9 @@ define([
             });
             body.on("click", ".J_showCheckBroker", function () {
                 var $this = $(this);
+                brokerId = $this.parents('tr').attr('data-id');
                 var oTd = $this.parents('tr').find('td');
                 var orgName = oTd.eq(4).text();
-                var brokerId = oTd.eq(1).text();
                 var brokerName = oTd.eq(2).text();
                 var phone = oTd.eq(5).text();
                 var oForm = $(".checkBrokerModal .modalForm");
@@ -116,26 +119,28 @@ define([
          */
         onCheck: function () {
             var _this = this;
-            var btn = $(".checkBrokerModal .remodal-confirm");
-            var oForm = $(".checkBrokerModal form");
+            var btn = $(".checkBrokerModal .J_check");
+            // var oForm = $(".checkBrokerModal form");
             btn.on("click", function () {
                 var $this = $(this);
                 if ($this.hasClass("disabled")) return;
                 $this.addClass("disabled");
+                var verify;
+                if($this.hasClass('remodal-confirm')){
+                    verify=1;
+                }else {
+                    verify=2;
+                }
                 var data = {
-                    id: userId,
-                    memberid: oForm.find('select').val(),
-                    uid: oForm.find('[name=username]').val(),
-                    password: oForm.find('[name=password]').val(),
-                    nickname: oForm.find('[name=nickname]').val()
+                    code: brokerId,
+                    verify: verify
                 };
                 accountAPI.checkBroker(data,function (result) {
                     if(result.code==0){
-                        addUserModal.close();
-                        layer.msg("新建成功");
+                        checkBrokerModal.close();
                         _this.fnGetList({},true);
                     }else{
-                        layer.msg("新建失败");
+                        layer.msg("操作失败");
                     }
                     $this.removeClass("disabled");
                 });
