@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9ec3f7e2-c485-4fc7-b698-b2948dadeda7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/View/countManage/countTable.html" afterPath="$PROJECT_DIR$/Application/Home/View/countManage/countTable.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/template/assets/js/page/countTable.js" afterPath="$PROJECT_DIR$/Public/template/assets/js/page/countTable.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,31 +25,9 @@
       <file leaf-file-name="countTable.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/Home/View/countManage/countTable.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="37" column="58" selection-start-line="37" selection-start-column="58" selection-end-line="37" selection-end-column="58" />
+            <state relative-caret-position="326">
+              <caret line="38" column="77" selection-start-line="38" selection-start-column="77" selection-end-line="38" selection-end-column="77" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="clientList.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Home/View/clientManage/clientList.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="38" column="107" selection-start-line="38" selection-start-column="107" selection-end-line="38" selection-end-column="107" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="clientList.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Public/template/assets/js/page/clientList.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="539">
-              <caret line="66" column="33" selection-start-line="66" selection-start-column="33" selection-end-line="66" selection-end-column="33" />
-              <folding>
-                <element signature="e#2154#2767#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -56,9 +35,11 @@
       <file leaf-file-name="countTable.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Public/template/assets/js/page/countTable.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="30" column="46" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
-              <folding />
+            <state relative-caret-position="425">
+              <caret line="32" column="90" selection-start-line="0" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+              <folding>
+                <marker date="1494343845000" expanded="true" signature="1159:1196" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -115,8 +96,8 @@
         <option value="$PROJECT_DIR$/Public/template/assets/js/page/RJSearch.js" />
         <option value="$PROJECT_DIR$/Application/Home/View/clientManage/ruJinSearch.html" />
         <option value="$PROJECT_DIR$/Application/Home/Controller/TradeController.class.php" />
-        <option value="$PROJECT_DIR$/Application/Home/View/countManage/countTable.html" />
         <option value="$PROJECT_DIR$/Application/Home/View/clientManage/clientList.html" />
+        <option value="$PROJECT_DIR$/Application/Home/View/countManage/countTable.html" />
         <option value="$PROJECT_DIR$/Public/template/assets/js/page/countTable.js" />
       </list>
     </option>
@@ -558,12 +539,12 @@
       <updated>1493870239080</updated>
       <workItem from="1493870241893" duration="6129000" />
       <workItem from="1493890887411" duration="1607000" />
-      <workItem from="1494133058993" duration="38183000" />
+      <workItem from="1494133058993" duration="38955000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45919000" />
+    <option name="totallyTimeSpent" value="46691000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="-148" width="1920" height="1080" extended-state="0" />
@@ -1050,17 +1031,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/View/countManage/countTable.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="37" column="58" selection-start-line="37" selection-start-column="58" selection-end-line="37" selection-end-column="58" />
+        <state relative-caret-position="326">
+          <caret line="38" column="77" selection-start-line="38" selection-start-column="77" selection-end-line="38" selection-end-column="77" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Public/template/assets/js/page/countTable.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="30" column="46" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
-          <folding />
+        <state relative-caret-position="425">
+          <caret line="32" column="90" selection-start-line="0" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+          <folding>
+            <marker date="1494343845000" expanded="true" signature="1159:1196" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

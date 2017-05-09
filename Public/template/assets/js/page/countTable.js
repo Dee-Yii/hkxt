@@ -15,12 +15,24 @@ define([
         render: function () {
             utils.initDatePicker();
             utils.initClientInfo();
-            this.fnGetList({pageNum:10}, true);
+            this.fnGetList({pageNum: 10}, true);
         },
         bindEvents: function () {
             this.onSearch();
+            this.onOutExl();
         },
-
+        onOutExl: function () {
+            $('.J_exl').on('click', function () {
+                var baseLink = $(this).attr('data-link');
+                var oForm = $(".search-bar");
+                var startTime = oForm.find("#dateStart").val(),
+                    endTime = oForm.find("#dateEnd").val(),
+                    nickname = oForm.find("[name=nickname]").val(),
+                    phoneNum = oForm.find("input[name=phone]").val();
+                var href = baseLink + '?startTime=' + startTime + '&endTime=' + endTime + '&nickname=' + nickname + '&phoneNum=' + phoneNum;
+                layer.msg('<a style="color:#fff;text-decoration: underline" href="' + href + '" target="_blank">点击此处下载EXL文件</a>')
+            });
+        },
         onSearch: function () {
             var _this = this;
             $(".J_search").on("click", function () {
@@ -52,7 +64,7 @@ define([
                     var phoneTd = '<td>' + (v.userInfo ? v.userInfo.phoneNum : "") + '</td>';
                     var goodsNameTd = '<td>' + (v.actaulInfo ? v.actaulInfo.name : "") + '</td>';
                     var dirTd = '<td>' + (v.buy_sell == -1 ? "卖出" : "买入") + '</td>';
-                    var incomeTd = '<td>'+(v.result*v.gross_profit).toFixed(2)+'</td>';
+                    var incomeTd = '<td>' + (v.result * v.gross_profit).toFixed(2) + '</td>';
                     oTr +=
                         '<tr class="fadeIn animated">'
                         + timeTd + usernameTd + phoneTd + goodsNameTd + dirTd + incomeTd +
@@ -77,7 +89,6 @@ define([
             });
 
 
-          
         }
 
     };
