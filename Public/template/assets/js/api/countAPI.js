@@ -10,6 +10,7 @@ define(["jquery"], function ($) {
          */
          baseRequestUrl:"../",
         getReport: function (data,cb) {
+            data.pageNum = 10;
             $.post(this.baseRequestUrl+"/trade/report",data,function (result) {
                 cb(result);
             })
