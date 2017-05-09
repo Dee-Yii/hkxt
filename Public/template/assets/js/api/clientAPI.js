@@ -97,11 +97,20 @@ define(["jquery"], function ($) {
 
 
         /**
-         * 出入金查询-列表
+         * 出金查询-列表
          */
-        getCRJList: function (data, cb) {
+        getCJList: function (data, cb) {
             data.pageNum = 10;
-            $.post(this.baseRequestUrl + "/trade/keep", data, function (result) {
+            $.post(this.baseRequestUrl + "/trade/getouts", data, function (result) {
+                cb(result);
+            })
+        },
+        /**
+         * 入金查询-列表
+         */
+        getRJList: function (data, cb) {
+            data.pageNum = 10;
+            $.post(this.baseRequestUrl + "/trade/getouts", data, function (result) {
                 cb(result);
             })
         }
