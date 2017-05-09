@@ -30,7 +30,7 @@ define([
                     startTime: oForm.find("#dataStart").val(),
                     endTime: oForm.find("#dataEnd").val(),
                     nickname: oForm.find("[name=nickname]").val(),
-                    phone: oForm.find("input[name=phone]").val()
+                    phoneNum: oForm.find("input[name=phone]").val()
                 };
                 _this.fnGetList(data, true);
             });
