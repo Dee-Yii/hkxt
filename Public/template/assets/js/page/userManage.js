@@ -88,14 +88,15 @@ define([
             });
         },
         onSearch: function () {
+            var _this = this;
             $(".J_search").on("click",function () {
                 var data={
-                    role: $("[name=roleType]").val(),
-                    phone: $("[name=phone]").val(),
-                    orgName: $("[name=orgName]").val(),
-                    nickname: $("[name=nickname]").val()
+                    // role: $("[name=roleType]").val(),
+                    cellphone: $("[name=phone-s]").val(),
+                    // orgName: $("[name=orgName]").val(),
+                    nickname: $("[name=nickname-s]").val()
                 };
-                this.fnGetList(data, true);
+                _this.fnGetList(data, true);
             })
         },
 
@@ -251,7 +252,7 @@ define([
             var table = $(".data-container table");
             accountAPI.getUserList(data, function (result) {
                 console.log("获取用户管理列表 调用成功!");
-                if (result.list.length == "0") {
+                if (!result.list || result.list.length == "0") {
                     table.find("tbody").empty().html("<tr><td colspan='9'>暂无记录</td></tr>");
                     $(".pagination").hide();
                     return false;
