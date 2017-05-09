@@ -245,6 +245,11 @@ class TradeController extends Controller {
       $Trades   = M('recharge_info');
       $count = $Trades->where($map)->count();// 查询满足要求的总记录数
       $list = $Trades->where($map)->order('depositTime desc')->page($page,$pageNum)->select();//获取分页数据
+      foreach ($list as $key => $value) {
+        # code...
+        $userMap['uid'] = $value['uid'];
+        $list[$key]['userInfo'] = M('user_info')->where($userMap)->find();
+      }
       $Page       = new \Think\Page($count,$pageNum);// 实例化分页类 传入总记录数和每页显示的记录数(25)
       $data['totalPages'] = $count;
       $data['pageNum'] =$pageNum;
