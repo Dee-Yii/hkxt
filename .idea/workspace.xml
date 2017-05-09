@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ec3f7e2-c485-4fc7-b698-b2948dadeda7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Application/Home/View/clientManage/ruJinSearch.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/template/assets/js/page/RJSearch.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Public/template/assets/js/page/CRJSearch.js" afterPath="$PROJECT_DIR$/Public/template/assets/js/page/CJSearch.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/View/clientManage/chuRuJinSearch.html" afterPath="$PROJECT_DIR$/Application/Home/View/clientManage/chuRuJinSearch.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/template/assets/js/api/clientAPI.js" afterPath="$PROJECT_DIR$/Public/template/assets/js/api/clientAPI.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/View/accountManage/orgManage.html" afterPath="$PROJECT_DIR$/Application/Home/View/accountManage/orgManage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/template/assets/js/page/orgManage.js" afterPath="$PROJECT_DIR$/Public/template/assets/js/page/orgManage.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -71,11 +68,56 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CJSearch.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CJSearch.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Public/template/assets/js/page/CJSearch.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="69" column="43" selection-start-line="69" selection-start-column="43" selection-end-line="69" selection-end-column="43" />
+            <state relative-caret-position="170">
+              <caret line="42" column="52" selection-start-line="42" selection-start-column="52" selection-end-line="42" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="orgManage.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Public/template/assets/js/page/orgManage.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="505">
+              <caret line="225" column="53" selection-start-line="225" selection-start-column="53" selection-end-line="225" selection-end-column="53" />
+              <folding>
+                <element signature="e#7#114#0" expanded="false" />
+                <element signature="e#469#538#0" expanded="false" />
+                <element signature="e#569#683#0" expanded="false" />
+                <element signature="e#968#1019#0" expanded="false" />
+                <element signature="e#1083#2005#0" expanded="false" />
+                <element signature="e#2470#2539#0" expanded="false" />
+                <element signature="e#3373#3578#0" expanded="false" />
+                <element signature="e#4749#4781#0" expanded="false" />
+                <element signature="e#4821#5832#0" expanded="false" />
+                <element signature="e#4998#5089#0" expanded="false" />
+                <element signature="e#5117#5230#0" expanded="false" />
+                <element signature="e#5299#5805#0" expanded="false" />
+                <element signature="e#5411#5715#0" expanded="false" />
+                <element signature="e#5529#5557#0" expanded="false" />
+                <element signature="e#5721#5787#0" expanded="false" />
+                <element signature="e#5862#6528#0" expanded="false" />
+                <element signature="e#5916#6517#0" expanded="false" />
+                <element signature="e#6007#6419#0" expanded="false" />
+                <element signature="e#6087#6399#0" expanded="false" />
+                <element signature="e#6156#6332#0" expanded="false" />
+                <element signature="e#6210#6305#0" expanded="false" />
+                <element signature="e#6425#6503#0" expanded="false" />
+                <element signature="e#9024#9215#0" expanded="false" />
+                <element signature="e#9467#10202#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="orgManage.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Home/View/accountManage/orgManage.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="484">
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -167,7 +209,6 @@
         <option value="$PROJECT_DIR$/Application/Home/View/countManage/countTable.html" />
         <option value="$PROJECT_DIR$/Public/template/assets/js/page/clientList.js" />
         <option value="$PROJECT_DIR$/Public/template/assets/js/libs/config.js" />
-        <option value="$PROJECT_DIR$/Application/Home/View/accountManage/orgManage.html" />
         <option value="$PROJECT_DIR$/Public/template/assets/js/api/accountAPI.js" />
         <option value="$PROJECT_DIR$/Application/Home/View/accountManage/brokerManage.html" />
         <option value="$PROJECT_DIR$/Public/template/assets/js/page/brokerManage.js" />
@@ -176,7 +217,6 @@
         <option value="$PROJECT_DIR$/Application/Home/View/clientManage/pingCangSearch.html" />
         <option value="$PROJECT_DIR$/Public/template/assets/js/page/PCSearch.js" />
         <option value="$PROJECT_DIR$/Public/template/assets/js/page/CRJSearch.js" />
-        <option value="$PROJECT_DIR$/Public/template/assets/js/page/orgManage.js" />
         <option value="$PROJECT_DIR$/Application/Home/View/accountManage/userManage.html" />
         <option value="$PROJECT_DIR$/Public/template/assets/js/page/userManage.js" />
         <option value="$PROJECT_DIR$/Public/template/assets/js/api/clientAPI.js" />
@@ -184,6 +224,8 @@
         <option value="$PROJECT_DIR$/Application/Home/View/clientManage/ruJinSearch.html" />
         <option value="$PROJECT_DIR$/Application/Home/View/clientManage/chuRuJinSearch.html" />
         <option value="$PROJECT_DIR$/Public/template/assets/js/page/CJSearch.js" />
+        <option value="$PROJECT_DIR$/Application/Home/View/accountManage/orgManage.html" />
+        <option value="$PROJECT_DIR$/Public/template/assets/js/page/orgManage.js" />
       </list>
     </option>
   </component>
@@ -654,12 +696,12 @@
       <updated>1493870239080</updated>
       <workItem from="1493870241893" duration="6129000" />
       <workItem from="1493890887411" duration="1607000" />
-      <workItem from="1494133058993" duration="33500000" />
+      <workItem from="1494133058993" duration="33826000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41236000" />
+    <option name="totallyTimeSpent" value="41562000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="-148" width="1920" height="1080" extended-state="0" />
@@ -910,14 +952,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/View/accountManage/orgManage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Public/template/assets/sass/base/common.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -1007,39 +1041,6 @@
         <state relative-caret-position="136">
           <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Public/template/assets/js/page/orgManage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="179" column="29" selection-start-line="179" selection-start-column="29" selection-end-line="179" selection-end-column="29" />
-          <folding>
-            <element signature="e#7#114#0" expanded="false" />
-            <element signature="e#469#538#0" expanded="false" />
-            <element signature="e#569#683#0" expanded="false" />
-            <element signature="e#968#1019#0" expanded="false" />
-            <element signature="e#1083#2005#0" expanded="false" />
-            <element signature="e#2470#2539#0" expanded="false" />
-            <element signature="e#3373#3578#0" expanded="false" />
-            <element signature="e#4749#4781#0" expanded="false" />
-            <element signature="e#4821#5832#0" expanded="false" />
-            <element signature="e#4998#5089#0" expanded="false" />
-            <element signature="e#5117#5230#0" expanded="false" />
-            <element signature="e#5299#5805#0" expanded="false" />
-            <element signature="e#5411#5715#0" expanded="false" />
-            <element signature="e#5529#5557#0" expanded="false" />
-            <element signature="e#5721#5787#0" expanded="false" />
-            <element signature="e#5862#6528#0" expanded="false" />
-            <element signature="e#5916#6517#0" expanded="false" />
-            <element signature="e#6007#6419#0" expanded="false" />
-            <element signature="e#6087#6399#0" expanded="false" />
-            <element signature="e#6156#6332#0" expanded="false" />
-            <element signature="e#6210#6305#0" expanded="false" />
-            <element signature="e#6425#6503#0" expanded="false" />
-            <element signature="e#9087#9278#0" expanded="false" />
-            <element signature="e#9530#10265#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1153,9 +1154,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Public/template/assets/js/page/CJSearch.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="69" column="43" selection-start-line="69" selection-start-column="43" selection-end-line="69" selection-end-column="43" />
+        <state relative-caret-position="170">
+          <caret line="42" column="52" selection-start-line="42" selection-start-column="52" selection-end-line="42" selection-end-column="52" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/accountManage/orgManage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/template/assets/js/page/orgManage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="505">
+          <caret line="225" column="53" selection-start-line="225" selection-start-column="53" selection-end-line="225" selection-end-column="53" />
+          <folding>
+            <element signature="e#7#114#0" expanded="false" />
+            <element signature="e#469#538#0" expanded="false" />
+            <element signature="e#569#683#0" expanded="false" />
+            <element signature="e#968#1019#0" expanded="false" />
+            <element signature="e#1083#2005#0" expanded="false" />
+            <element signature="e#2470#2539#0" expanded="false" />
+            <element signature="e#3373#3578#0" expanded="false" />
+            <element signature="e#4749#4781#0" expanded="false" />
+            <element signature="e#4821#5832#0" expanded="false" />
+            <element signature="e#4998#5089#0" expanded="false" />
+            <element signature="e#5117#5230#0" expanded="false" />
+            <element signature="e#5299#5805#0" expanded="false" />
+            <element signature="e#5411#5715#0" expanded="false" />
+            <element signature="e#5529#5557#0" expanded="false" />
+            <element signature="e#5721#5787#0" expanded="false" />
+            <element signature="e#5862#6528#0" expanded="false" />
+            <element signature="e#5916#6517#0" expanded="false" />
+            <element signature="e#6007#6419#0" expanded="false" />
+            <element signature="e#6087#6399#0" expanded="false" />
+            <element signature="e#6156#6332#0" expanded="false" />
+            <element signature="e#6210#6305#0" expanded="false" />
+            <element signature="e#6425#6503#0" expanded="false" />
+            <element signature="e#9024#9215#0" expanded="false" />
+            <element signature="e#9467#10202#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

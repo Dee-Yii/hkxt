@@ -223,8 +223,7 @@ define([
                 var oForm = $(".search-bar");
                 var data = {
                     page: 1,
-                    type: oForm.find("input[name=type]").val(),
-                    superMemberid: oForm.find("input[name=level]").val(),
+                    superMemberid: oForm.find("select[name=level]").val(),
                     name: oForm.find("input[name=orgName]").val() || ""
                 };
                 _this.fnGetList(data, true);
