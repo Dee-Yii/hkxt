@@ -48,10 +48,10 @@ define([
                 }
                 var oTr;
                 $.each(result.list, function (i, v) {
-                    var timeTd = '<td>' + v.handleTime + '</td>';
+                    var timeTd = '<td>' + v.depositTime + '</td>';
                     var codeTd = '<td>' + v.uid + '</td>';
                     var tradeTypeTd = '<td>' + (v.buy_sell == 1 ? '买入':'卖出') + '</td>';
-                    var amountTd = '<td>' + v.money + '</td>';
+                    var amountTd = '<td>' + v.amount + '</td>';
                     var clientNameTd = '<td>' + (v.userInfo ? v.userInfo.nickname : "") + '</td>';
                     oTr += '<tr class="fadeIn animated">' + timeTd + codeTd + tradeTypeTd + amountTd + clientNameTd + '</tr>';
                 });
