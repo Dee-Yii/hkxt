@@ -39,8 +39,8 @@ define([
         fnGetList: function (data, initPage) {
             var _this = this;
             var table = $(".data-container table");
-            clientAPI.getCJList(data, function (result) {
-                console.log("获取出金列表 调用成功!");
+            clientAPI.getRJList(data, function (result) {
+                console.log("获取入金列表 调用成功!");
                 if (!result.list || result.list.length == "0") {
                     table.find("tbody").empty().html("<tr><td colspan='5'>暂无记录</td></tr>");
                     $(".pagination").hide();

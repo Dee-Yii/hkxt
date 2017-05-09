@@ -110,7 +110,7 @@ define(["jquery"], function ($) {
          */
         getRJList: function (data, cb) {
             data.pageNum = 10;
-            $.post(this.baseRequestUrl + "/trade/getouts", data, function (result) {
+            $.post(this.baseRequestUrl + "/trade/getkeeps", data, function (result) {
                 cb(result);
             })
         }

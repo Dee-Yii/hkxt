@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9ec3f7e2-c485-4fc7-b698-b2948dadeda7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/View/clientManage/pingCangSearch.html" afterPath="$PROJECT_DIR$/Application/Home/View/clientManage/pingCangSearch.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/View/clientManage/ruJinSearch.html" afterPath="$PROJECT_DIR$/Application/Home/View/clientManage/ruJinSearch.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/View/countManage/countTable.html" afterPath="$PROJECT_DIR$/Application/Home/View/countManage/countTable.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/template/assets/js/page/CJSearch.js" afterPath="$PROJECT_DIR$/Public/template/assets/js/page/CJSearch.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/template/assets/js/api/clientAPI.js" afterPath="$PROJECT_DIR$/Public/template/assets/js/api/clientAPI.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/template/assets/js/page/RJSearch.js" afterPath="$PROJECT_DIR$/Public/template/assets/js/page/RJSearch.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -87,21 +84,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RJSearch.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RJSearch.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Public/template/assets/js/page/RJSearch.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state relative-caret-position="493">
+              <caret line="41" column="27" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ruJinSearch.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ruJinSearch.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/Home/View/clientManage/ruJinSearch.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="38" column="27" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
+            <state relative-caret-position="595">
+              <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="clientAPI.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Public/template/assets/js/api/clientAPI.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="709">
+              <caret line="110" column="17" selection-start-line="110" selection-start-column="8" selection-end-line="110" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -149,7 +156,6 @@
         <option value="$PROJECT_DIR$/Public/template/assets/js/page/CRJSearch.js" />
         <option value="$PROJECT_DIR$/Application/Home/View/accountManage/userManage.html" />
         <option value="$PROJECT_DIR$/Public/template/assets/js/page/userManage.js" />
-        <option value="$PROJECT_DIR$/Public/template/assets/js/api/clientAPI.js" />
         <option value="$PROJECT_DIR$/Application/Home/View/clientManage/clientList.html" />
         <option value="$PROJECT_DIR$/Application/Home/View/clientManage/chuRuJinSearch.html" />
         <option value="$PROJECT_DIR$/Application/Home/View/accountManage/orgManage.html" />
@@ -159,8 +165,9 @@
         <option value="$PROJECT_DIR$/Application/Home/View/countManage/countTable.html" />
         <option value="$PROJECT_DIR$/Application/Home/View/clientManage/pingCangSearch.html" />
         <option value="$PROJECT_DIR$/Public/template/assets/js/page/CJSearch.js" />
-        <option value="$PROJECT_DIR$/Public/template/assets/js/page/RJSearch.js" />
         <option value="$PROJECT_DIR$/Application/Home/View/clientManage/ruJinSearch.html" />
+        <option value="$PROJECT_DIR$/Public/template/assets/js/api/clientAPI.js" />
+        <option value="$PROJECT_DIR$/Public/template/assets/js/page/RJSearch.js" />
       </list>
     </option>
   </component>
@@ -366,6 +373,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="page" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hkxt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hkxt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -601,12 +638,12 @@
       <updated>1493870239080</updated>
       <workItem from="1493870241893" duration="6129000" />
       <workItem from="1493890887411" duration="1607000" />
-      <workItem from="1494133058993" duration="35756000" />
+      <workItem from="1494133058993" duration="36090000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43492000" />
+    <option name="totallyTimeSpent" value="43826000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="-148" width="1920" height="1080" extended-state="0" />
@@ -997,14 +1034,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Public/template/assets/js/api/clientAPI.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Public/template/assets/js/page/orgManage.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -1088,18 +1117,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Public/template/assets/js/page/RJSearch.js">
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/clientManage/ruJinSearch.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        <state relative-caret-position="595">
+          <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/View/clientManage/ruJinSearch.html">
+    <entry file="file://$PROJECT_DIR$/Public/template/assets/js/api/clientAPI.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="27" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
+        <state relative-caret-position="709">
+          <caret line="110" column="17" selection-start-line="110" selection-start-column="8" selection-end-line="110" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/template/assets/js/page/RJSearch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="41" column="27" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
           <folding />
         </state>
       </provider>
