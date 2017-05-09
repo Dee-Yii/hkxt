@@ -49,18 +49,15 @@ define([
         onSearch: function () {
             var _this = this;
             $(".J_search").on("click", function () {
+                var oForm = $(".search-bar");
                 var data = {
                     page: 1,
-                    startTime: $("#dateStart").val(),
-                    endTime: $("#dateEnd").val(),
-                    agetId: $("input[name=org]").val(),
-                    nickname: $("input[name=nickname]").val(),
-                    memberId: $("input[name=broker]").val(),
-                    phoneNum: $("input[name=phone]").val()
+                    startTime: oForm.find("#dateStart").val(),
+                    endTime: oForm.find("#dateEnd").val(),
+                    nickname: oForm.find("[name=nickname]").val(),
+                    phoneNum: oForm.find("input[name=phone]").val()
                 };
-
                 _this.fnGetList(data, true);
-
             });
         },
 

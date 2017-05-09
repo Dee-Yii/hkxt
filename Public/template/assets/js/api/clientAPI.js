@@ -27,6 +27,7 @@ define(["jquery"], function ($) {
          * 客户列表-列表
          */
         getClientList: function (data, cb) {
+            data.pageNum=10;
             $.post(this.baseRequestUrl + "/user/getlist", data, function (result) {
                 cb(result);
             })
@@ -35,6 +36,7 @@ define(["jquery"], function ($) {
          * 客户列表-未平仓列表
          */
         getWPCList: function (data, cb) {
+            data.pageNum=10;
             $.post(this.baseRequestUrl + "/trade/closePosition", data, function (result) {
                 cb(result);
             })
@@ -43,6 +45,7 @@ define(["jquery"], function ($) {
          * 客户列表-已平仓列表
          */
         getYPCList: function (data, cb) {
+            data.pageNum=10;
             $.post(this.baseRequestUrl + "/trade/closePosition", data, function (result) {
                 cb(result);
             })
@@ -51,6 +54,7 @@ define(["jquery"], function ($) {
          * 客户列表-出金列表
          */
         getOutMoneyList: function (data, cb) {
+            data.pageNum=10;
             $.post(this.baseRequestUrl + "/trade/out", data, function (result) {
                 cb(result);
             })
@@ -59,6 +63,7 @@ define(["jquery"], function ($) {
          * 客户列表-入金列表
          */
         getInMoneyList: function (data, cb) {
+            data.pageNum=10;
             $.post(this.baseRequestUrl + "/trade/keep", data, function (result) {
                 cb(result);
             })
