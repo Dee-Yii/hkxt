@@ -177,6 +177,7 @@ define([
         },
 
         onChange: function () {
+            var _this = this;
             var confirmBtn = $(".changeOrgModal .remodal-confirm");
             var oForm = $(".changeOrgModal form");
             var orgLevelSelect = oForm.find('[name=orgLevel]');
