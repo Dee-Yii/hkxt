@@ -218,7 +218,7 @@ class TradeController extends Controller {
       $Trades   = M('user_withdraw');
       $count = $Trades->where($map)->count();// 查询满足要求的总记录数
       $list = $Trades->where($map)->order('handleTime')->page($page,$pageNum)->select();//获取分页数据
-      
+
       $Page       = new \Think\Page($count,$pageNum);// 实例化分页类 传入总记录数和每页显示的记录数(25)
       foreach ($list as $key => $value) {
         # code...
@@ -237,10 +237,10 @@ class TradeController extends Controller {
       $pageNum = isset($_POST['pageNum'])?$_POST['pageNum']:5;
       $page = isset($_POST['page'])?$_POST['page']:1;
       $userId = isset($_POST['userId'])?$_POST['userId']:1;
-      $timestart = date("Y-m-d H:i:s",strtotime($_POST['starTime']));
+      $timestart = date("Y-m-d H:i:s",strtotime($_POST['startTime']));
       $timeend = date("Y-m-d H:i:s",strtotime($_POST['endTime']));
       if(!empty($_POST['starTime']) || !empty($_POST['endTime'])){
-        $map['handleTime'] = array(array('gt','$timestart'),arry('lt','timeend')) ;
+        $map['handleTime'] = array(array('gt',"$timestart"),array('lt',"$timeend")) ;
       }
 
       $Trades   = M('user_withdraw');
