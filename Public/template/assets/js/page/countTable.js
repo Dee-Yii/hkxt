@@ -27,11 +27,10 @@ define([
                 var oForm = $(".search-bar");
                 var data = {
                     page: 1,
-                    start: oForm.find("#dataStart").val(),
-                    end: oForm.find("#dataEnd").val(),
+                    startTime: oForm.find("#dataStart").val(),
+                    endTime: oForm.find("#dataEnd").val(),
                     nickname: oForm.find("[name=nickname]").val(),
-                    superMemberid: oForm.find("input[name=level]").val(),
-                    name: oForm.find("input[name=orgName]").val() || ""
+                    phone: oForm.find("input[name=phone]").val()
                 };
                 _this.fnGetList(data, true);
             });
@@ -49,13 +48,14 @@ define([
                 var oTr;
                 $.each(result.list, function (i, v) {
                     var timeTd = '<td>' + v.close_position_time + '</td>';
-                    var usernameTd = '<td>' + (v.userInfo ? v.userInfo.phoneNum : "") + '</td>';
+                    var usernameTd = '<td>' + (v.userInfo ? v.userInfo.nickname : "") + '</td>';
+                    var phoneTd = '<td>' + (v.userInfo ? v.userInfo.phoneNum : "") + '</td>';
                     var goodsNameTd = '<td>' + (v.actaulInfo ? v.actaulInfo.name : "") + '</td>';
                     var dirTd = '<td>' + (v.buy_sell == -1 ? "卖出" : "买入") + '</td>';
                     var incomeTd = '<td>'+(v.result*v.gross_profit).toFixed(2)+'</td>';
                     oTr +=
                         '<tr class="fadeIn animated">'
-                        + timeTd + usernameTd  + goodsNameTd + dirTd + incomeTd +
+                        + timeTd + usernameTd + phoneTd + goodsNameTd + dirTd + incomeTd +
                         '</tr>';
                 });
                 table.find("tbody").empty().html(oTr);
