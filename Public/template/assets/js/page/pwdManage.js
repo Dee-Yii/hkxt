@@ -38,6 +38,7 @@ define(["jquery","sysAPI","layer"], function ($,sysAPI) {
                 sysAPI.resetPwd(data,function (result) {
                     if(result.code === 0){
                         layer.alert("修改成功");
+                        window.location.reload();
                     }else{
                         layer.alert(result.message);
                     }
