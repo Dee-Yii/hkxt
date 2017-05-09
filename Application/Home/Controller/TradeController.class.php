@@ -287,13 +287,28 @@ class TradeController extends Controller {
         $objActSheet->setCellValue('D1', '收益');
         $objActSheet->setCellValue('E1', '交易时间');
         //填充数据
-        $pageNum = isset($_GET['pageNum'])?$_GET['pageNum']:5;
-        $page = isset($_GET['page'])?$_GET['page']:1;
-        $timestart = date("Y-m-d H:i:s",strtotime($_POST['starTime']));
-        $timeend = date("Y-m-d H:i:s",strtotime($_POST['endTime']));
-        if(!empty($_POST['startTime']) || !empty($_POST['endTime'])){
-          $map['close_position_time '] = array(array('gt','$timestart'),arry('lt','timeend')) ;
+        $user_info =M('userInfo');
+        if(!empty($_POST['nickname'])){
+          $usermap['nickname'] = array('like',"%".$_POST['nickname']."%");
         }
+        if(!empty($_POST['phoneNum'])){
+          $usermap['phoneNum'] = array('like',"%".$_POST['phoneNum']."%");
+        }
+        if($usermap){
+          $userInfos = M('user_info')->where($usermap)->select();
+
+          foreach ($userInfos as $key => $value) {
+            # code...
+            $ids[] = $value['uid'];
+          }
+          $map['uid'] =  array('in', $ids);
+        }
+        $timestart = strtotime($_POST['startTime']);
+        $timeend = strtotime($_POST['endTime']);
+        if(!empty($_POST['startTime']) || !empty($_POST['endTime'])){
+          $map['close_position_time '] = array(array('gt',"$timestart"),array('lt',"$timeend")) ;
+        }
+
 
         $Trades   = M('his_trades_record');
 
@@ -366,10 +381,8 @@ class TradeController extends Controller {
 
         foreach ($userInfos as $key => $value) {
           # code...
-
           $ids[] = $value['uid'];
         }
-
         $map['uid'] =  array('in', $ids);
       }
       $timestart = strtotime($_POST['startTime']);
@@ -379,7 +392,7 @@ class TradeController extends Controller {
       }
       $Trades = M('his_trades_record');
       $count = $Trades->where($map)->count();// 查询满足要求的总记录数
-      
+
       $list = $Trades->where($map)->order('open_position_time desc')->page($page,$pageNum)->select();//获取分页数据
       foreach($list as $key=>$value){
         $actualMap['id'] = $value['code_id'];
@@ -394,6 +407,9 @@ class TradeController extends Controller {
       $data['pageNum'] =$pageNum;
       $data['page'] = $page;
       $data['totalPages'] = ceil($count/$pageNum);
+      if(!$list){
+        $list =[];
+      }
       $data['list'] = $list;
       //s$data['from'] ='$Page->';
 
