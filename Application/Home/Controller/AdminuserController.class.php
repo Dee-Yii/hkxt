@@ -31,11 +31,10 @@ class AdminuserController extends Controller {
       }
 
       if(!empty($_POST['start_time']) || !empty($_POST['end_time'])){
-        $map['registerTime'] = array(array('gt','$timeStart'),arry('lt','$timeEnd')) ;
+        $map['registerTime'] = array(array('gt',"$timeStart"),arry('lt',"$timeEnd")) ;
       }
        $count = $user_info->where($map)->count();// 查询满足要求的总记录数
        $list = $user_info->where($map)->page($page,$pageNum)->select();//获取分页数据
-
         foreach($list as $key =>$value){
          $memberMap['memberid'] = $value['memberid'];
          //$agentMap['code'] = $value['agentid'];
