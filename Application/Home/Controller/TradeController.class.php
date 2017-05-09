@@ -288,11 +288,11 @@ class TradeController extends Controller {
         $objActSheet->setCellValue('E1', '交易时间');
         //填充数据
         $user_info =M('userInfo');
-        if(!empty($_POST['nickname'])){
-          $usermap['nickname'] = array('like',"%".$_POST['nickname']."%");
+        if(!empty($_GET['nickname'])){
+          $usermap['nickname'] = array('like',"%".$_GET['nickname']."%");
         }
-        if(!empty($_POST['phoneNum'])){
-          $usermap['phoneNum'] = array('like',"%".$_POST['phoneNum']."%");
+        if(!empty($_GET['phoneNum'])){
+          $usermap['phoneNum'] = array('like',"%".$_GET['phoneNum']."%");
         }
         if($usermap){
           $userInfos = M('user_info')->where($usermap)->select();
@@ -303,15 +303,15 @@ class TradeController extends Controller {
           }
           $map['uid'] =  array('in', $ids);
         }
-        $timestart = strtotime($_POST['startTime']);
-        $timeend = strtotime($_POST['endTime']);
-        if(!empty($_POST['startTime']) || !empty($_POST['endTime'])){
+        $timestart = strtotime($_GET['startTime']);
+        $timeend = strtotime($_GET['endTime']);
+        if(!empty($_GET['startTime']) || !empty($_GET['endTime'])){
           $map['close_position_time '] = array(array('gt',"$timestart"),array('lt',"$timeend")) ;
         }
 
 
         $Trades   = M('his_trades_record');
-
+        print_r($map);exit;
         $list = $Trades->where($map)->order('close_position_time desc')->select();//获取分页数据
 
         foreach($list as $key=>$value){
