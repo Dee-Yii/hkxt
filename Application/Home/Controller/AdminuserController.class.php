@@ -24,10 +24,10 @@ class AdminuserController extends Controller {
       $timeStart = date("Y-m-d H:i:s",strtotime($_POST['starTime']));
       $timeEnd = date("Y-m-d H:i:s",strtotime($_POST['endTime']));
       if(!empty($_POST['nickname'])){
-        $map['nickname'] = array('like',$_POST['nickname']."%");
+        $map['nickname'] = array('like',"%".$_POST['nickname']."%");
       }
       if(!empty($_POST['cellphone'])){
-        $map['cellphone'] = array('like',$_POST['cellphone']."%");
+        $map['cellphone'] = array('like',"%".$_POST['cellphone']."%");
       }
 
       if(!empty($_POST['start_time']) || !empty($_POST['end_time'])){
