@@ -294,6 +294,7 @@ class TradeController extends Controller {
         if(!empty($_POST['startTime']) || !empty($_POST['endTime'])){
           $map['close_position_time '] = array(array('gt','$timestart'),arry('lt','timeend')) ;
         }
+
         $Trades   = M('his_trades_record');
 
         $list = $Trades->where($map)->order('close_position_time desc')->select();//获取分页数据
@@ -353,6 +354,24 @@ class TradeController extends Controller {
     public function report(){
       $pageNum = $_POST['pageNum']?$_POST['pageNum']:5;
       $page = $_POST['page']?$_POST['page']:1;
+      $user_info =M('userInfo');
+      if(!empty($_POST['nickname'])){
+        $usermap['nickname'] = array('like',$_POST['nickname']."%");
+      }
+      if(!empty($_POST['phoneNum'])){
+        $usermap['phoneNum'] = array('like',$_POST['phoneNum']."%");
+      }
+      if($usermap){
+        $usrInfos = M('user_info')->where($usermap)->select();
+        foreach ($$userInfo as $key => $value) {
+          # code...
+          $ids[] = $value['uid'];
+
+        }
+
+        $map['uid'] =  array('in'  , $ids);
+      }
+
       $Trades = M('his_trades_record');
       $count = $Trades->where($map)->count();// 查询满足要求的总记录数
       $list = $Trades->where($map)->order('open_position_time desc')->page($page,$pageNum)->select();//获取分页数据
