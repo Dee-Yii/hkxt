@@ -21,26 +21,20 @@ class UserController extends Controller {
       $user_info =M('userInfo');
       $pageNum = isset($_POST['pageNum'])?$_POST['pageNum']:5;
       $page = isset($_POST['page'])?$_POST['page']:1;
-      $timeStart = date("Y-m-d H:i:s",strtotime($_POST['starTime']));
+      $timeStart = date("Y-m-d H:i:s",strtotime($_POST['startTime']));
       $timeEnd = date("Y-m-d H:i:s",strtotime($_POST['endTime']));
-
-      if(!empty($_POST['memberId'])){
-        $map['memberId'] = $_POST['memberid'];
+      if(!empty($_POST['nickname'])){
+        $map['nickname'] = array('like',"%".$_POST['nickname']."%");
       }
-      if(!empty($_POST['agentId'])){
-        $map['agentId'] = $_POST['agentid'];
-      }
-      if(empty($_POST['nickname'])){
-        $map['user_info.nickname'] = array('like',$_POST['nickname']."%");
-      }
-      if(empty($_POST['phoneNum'])){
-        $map['phoneNum'] = array('like',$_POST['phoneNum']."%");
+      if(!empty($_POST['phoneNum'])){
+        $map['phoneNum'] = array('like',"%".$_POST['phoneNum']."%");
       }
 
-      if(!empty($_POST['start_time']) || !empty($_POST['end_time'])){
-        $map['registerTime'] = array(array('gt','$timeStart'),arry('lt','$timeEnd')) ;
+      if(!empty($_POST['startTime']) || !empty($_POST['endTime'])){
+        $map['registerTime'] = array(array('gt',"$timeStart"),array('lt',"$timeEnd")) ;
       }
        $count = $user_info->where($map)->count();// 查询满足要求的总记录数
+      
        $list = $user_info->where($map)->page($page,$pageNum)->select();//获取分页数据
 
        $Page       = new \Think\Page($count,$pageNum);// 实例化分页类 传入总记录数和每页显示的记录数(25)
