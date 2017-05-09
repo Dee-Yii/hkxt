@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9ec3f7e2-c485-4fc7-b698-b2948dadeda7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/View/clientManage/clientList.html" afterPath="$PROJECT_DIR$/Application/Home/View/clientManage/clientList.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/View/sysManage/pwdManage.html" afterPath="$PROJECT_DIR$/Application/Home/View/sysManage/pwdManage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/template/assets/js/api/sysAPI.js" afterPath="$PROJECT_DIR$/Public/template/assets/js/api/sysAPI.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/template/assets/js/page/pwdManage.js" afterPath="$PROJECT_DIR$/Public/template/assets/js/page/pwdManage.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,55 +23,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="clientList.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Application/Home/View/clientManage/clientList.html">
+      <file leaf-file-name="pwdManage.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Home/View/sysManage/pwdManage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="32" column="41" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
+            <state relative-caret-position="646">
+              <caret line="41" column="24" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="clientList.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Public/template/assets/js/page/clientList.js">
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Home/View/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="83" column="27" selection-start-line="83" selection-start-column="27" selection-end-line="83" selection-end-column="27" />
-              <folding>
-                <element signature="e#2112#2725#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="clientAPI.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Public/template/assets/js/api/clientAPI.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="28" column="44" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
+            <state relative-caret-position="425">
+              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="countTable.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Public/template/assets/js/page/countTable.js">
+      <file leaf-file-name="pwdManage.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Public/template/assets/js/page/pwdManage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="47" column="15" selection-start-line="36" selection-start-column="12" selection-end-line="47" selection-end-column="15" />
-              <folding>
-                <marker date="1494344978000" expanded="true" signature="1159:1196" ph="..." />
-              </folding>
+            <state relative-caret-position="697">
+              <caret line="41" column="50" selection-start-line="41" selection-start-column="50" selection-end-line="41" selection-end-column="50" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="countTable.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Home/View/countManage/countTable.html">
+      <file leaf-file-name="sysAPI.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Public/template/assets/js/api/sysAPI.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="37" column="66" selection-start-line="32" selection-start-column="16" selection-end-line="37" selection-end-column="66" />
+            <state relative-caret-position="204">
+              <caret line="12" column="35" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -131,6 +119,9 @@
         <option value="$PROJECT_DIR$/Public/template/assets/js/page/clientList.js" />
         <option value="$PROJECT_DIR$/Public/template/assets/js/api/clientAPI.js" />
         <option value="$PROJECT_DIR$/Application/Home/View/clientManage/clientList.html" />
+        <option value="$PROJECT_DIR$/Application/Home/View/sysManage/pwdManage.html" />
+        <option value="$PROJECT_DIR$/Public/template/assets/js/api/sysAPI.js" />
+        <option value="$PROJECT_DIR$/Public/template/assets/js/page/pwdManage.js" />
       </list>
     </option>
   </component>
@@ -415,6 +406,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="sysManage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hkxt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hkxt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="countManage" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -571,12 +588,12 @@
       <updated>1493870239080</updated>
       <workItem from="1493870241893" duration="6129000" />
       <workItem from="1493890887411" duration="1607000" />
-      <workItem from="1494133058993" duration="40227000" />
+      <workItem from="1494133058993" duration="41147000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47963000" />
+    <option name="totallyTimeSpent" value="48883000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="-148" width="1920" height="1080" extended-state="0" />
@@ -624,29 +641,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Public/template/assets/js/page/clientList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2300">
-          <caret line="100" column="30" selection-start-line="100" selection-start-column="30" selection-end-line="100" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Public/template/assets/views/pages/clientManage/clientListView/chuRuJinLog.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3266">
-          <caret line="142" column="60" selection-start-line="142" selection-start-column="60" selection-end-line="142" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/Controller/SysmanageController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/Controller/MemberController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="529">
@@ -749,14 +743,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/Controller/AdminuserController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Public/template/assets/js/api/sysAPI.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -928,39 +914,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Public/template/assets/js/page/orgManage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="66" column="8" selection-start-line="66" selection-start-column="8" selection-end-line="84" selection-end-column="10" />
-          <folding>
-            <element signature="e#7#114#0" expanded="false" />
-            <element signature="e#469#538#0" expanded="false" />
-            <element signature="e#569#683#0" expanded="false" />
-            <element signature="e#968#1019#0" expanded="false" />
-            <element signature="e#1083#2005#0" expanded="false" />
-            <element signature="e#2470#2539#0" expanded="false" />
-            <element signature="e#3373#3578#0" expanded="false" />
-            <element signature="e#4749#4781#0" expanded="false" />
-            <element signature="e#4821#5832#0" expanded="false" />
-            <element signature="e#4998#5089#0" expanded="false" />
-            <element signature="e#5117#5230#0" expanded="false" />
-            <element signature="e#5299#5805#0" expanded="false" />
-            <element signature="e#5411#5715#0" expanded="false" />
-            <element signature="e#5529#5557#0" expanded="false" />
-            <element signature="e#5721#5787#0" expanded="false" />
-            <element signature="e#5862#6528#0" expanded="false" />
-            <element signature="e#5916#6517#0" expanded="false" />
-            <element signature="e#6007#6419#0" expanded="false" />
-            <element signature="e#6087#6399#0" expanded="false" />
-            <element signature="e#6156#6332#0" expanded="false" />
-            <element signature="e#6210#6305#0" expanded="false" />
-            <element signature="e#6425#6503#0" expanded="false" />
-            <element signature="e#9024#9215#0" expanded="false" />
-            <element signature="e#9467#10202#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/View/accountManage/orgManage.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="484">
@@ -1045,14 +998,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/View/countManage/countTable.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="37" column="66" selection-start-line="32" selection-start-column="16" selection-end-line="37" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Public/template/assets/js/page/clientList.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -1060,6 +1005,55 @@
           <folding>
             <element signature="e#2112#2725#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/clientManage/clientList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="51" column="35" selection-start-line="51" selection-start-column="35" selection-end-line="51" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/template/assets/js/page/orgManage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="66" column="8" selection-start-line="66" selection-start-column="8" selection-end-line="84" selection-end-column="10" />
+          <folding>
+            <element signature="e#7#114#0" expanded="false" />
+            <element signature="e#469#538#0" expanded="false" />
+            <element signature="e#569#683#0" expanded="false" />
+            <element signature="e#968#1019#0" expanded="false" />
+            <element signature="e#1083#2005#0" expanded="false" />
+            <element signature="e#2470#2539#0" expanded="false" />
+            <element signature="e#3373#3578#0" expanded="false" />
+            <element signature="e#4749#4781#0" expanded="false" />
+            <element signature="e#4821#5832#0" expanded="false" />
+            <element signature="e#4998#5089#0" expanded="false" />
+            <element signature="e#5117#5230#0" expanded="false" />
+            <element signature="e#5299#5805#0" expanded="false" />
+            <element signature="e#5411#5715#0" expanded="false" />
+            <element signature="e#5529#5557#0" expanded="false" />
+            <element signature="e#5721#5787#0" expanded="false" />
+            <element signature="e#5862#6528#0" expanded="false" />
+            <element signature="e#5916#6517#0" expanded="false" />
+            <element signature="e#6007#6419#0" expanded="false" />
+            <element signature="e#6087#6399#0" expanded="false" />
+            <element signature="e#6156#6332#0" expanded="false" />
+            <element signature="e#6210#6305#0" expanded="false" />
+            <element signature="e#6425#6503#0" expanded="false" />
+            <element signature="e#9024#9215#0" expanded="false" />
+            <element signature="e#9467#10202#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/countManage/countTable.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="37" column="66" selection-start-line="32" selection-start-column="16" selection-end-line="37" selection-end-column="66" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1071,10 +1065,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/View/clientManage/clientList.html">
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="32" column="41" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
+        <state relative-caret-position="425">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/sysManage/pwdManage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="41" column="24" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/template/assets/js/api/sysAPI.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="35" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/template/assets/js/page/pwdManage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="41" column="50" selection-start-line="41" selection-start-column="50" selection-end-line="41" selection-end-column="50" />
           <folding />
         </state>
       </provider>

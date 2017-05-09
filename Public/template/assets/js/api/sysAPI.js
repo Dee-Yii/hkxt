@@ -10,8 +10,8 @@ define(["jquery"], function ($) {
                 cb(result);
             })
         },
-        resetPwd: function () {
-            $.post(this.baseRequestUrl+"/resetPwd.php",data,function (result) {
+        resetPwd: function (data,cb) {
+            $.post(this.baseRequestUrl+"/login/doRestPassword",data,function (result) {
                 cb(result);
             })
         }
