@@ -52,7 +52,7 @@ define([
             var table = $(".data-container table");
             countAPI.getReport(data, function (result) {
                 console.log("获取统计报表 调用成功!");
-                if (!result.list && result.list.length == "0") {
+                if (!result.list || result.list.length == "0") {
                     table.find("tbody").empty().html("<tr><td colspan='6'>暂无记录</td></tr>");
                     $(".pagination").hide();
                     return false;
