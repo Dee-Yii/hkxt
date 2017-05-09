@@ -245,6 +245,12 @@ class TradeController extends Controller {
       $Trades   = M('recharge_info');
       $count = $Trades->where($map)->count();// 查询满足要求的总记录数
       $list = $Trades->where($map)->order('depositTime desc')->page($page,$pageNum)->select();//获取分页数据
+      
+      foreach ($list as $key => $value) {
+        # code...
+        $userMap['uid'] = $value['uid'];
+        $list[$key]['userInfo'] = M('user_info')->where($userMap)->find();
+      }
       $Page       = new \Think\Page($count,$pageNum);// 实例化分页类 传入总记录数和每页显示的记录数(25)
       $data['totalPages'] = $count;
       $data['pageNum'] =$pageNum;
@@ -284,10 +290,10 @@ class TradeController extends Controller {
         //填充数据
         $pageNum = isset($_GET['pageNum'])?$_GET['pageNum']:5;
         $page = isset($_GET['page'])?$_GET['page']:1;
-        $timestart = date("Y-m-d H:i:s",strtotime($_POST['starTime']));
+        $timestart = date("Y-m-d H:i:s",strtotime($_POST['startTime']));
         $timeend = date("Y-m-d H:i:s",strtotime($_POST['endTime']));
         if(!empty($_POST['startTime']) || !empty($_POST['endTime'])){
-          $map['close_position_time '] = array(array('gt','$timestart'),arry('lt','timeend')) ;
+          $map['close_position_time '] = array(array('gt',"$timestart"),array('lt',"$timeend")) ;
         }
         $Trades   = M('his_trades_record');
 
