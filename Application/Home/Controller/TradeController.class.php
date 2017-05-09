@@ -372,14 +372,14 @@ class TradeController extends Controller {
 
         $map['uid'] =  array('in', $ids);
       }
-      $timestart = strtotime($_POST['starTime']);
+      $timestart = strtotime($_POST['startTime']);
       $timeend = strtotime($_POST['endTime']);
-      if(!empty($_POST['starTime']) || !empty($_POST['endTime'])){
+      if(!empty($_POST['startTime']) || !empty($_POST['endTime'])){
         $map['close_position_time '] = array(array('gt',"$timestart"),array('lt',"$timeend")) ;
       }
       $Trades = M('his_trades_record');
       $count = $Trades->where($map)->count();// 查询满足要求的总记录数
-
+      
       $list = $Trades->where($map)->order('open_position_time desc')->page($page,$pageNum)->select();//获取分页数据
       foreach($list as $key=>$value){
         $actualMap['id'] = $value['code_id'];
