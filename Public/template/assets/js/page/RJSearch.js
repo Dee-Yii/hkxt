@@ -15,27 +15,11 @@ define([
             this.bindEvents();
         },
         render: function () {
-            this.initGoodsList();
             utils.initDatePicker();
-            // this.fnGetList({},true);
+            this.fnGetList({},true);
         },
         bindEvents: function () {
             this.onSearch();
-        },
-        initGoodsList: function () {
-            var oSelect = $("select[name=goodsName]");
-            var optionStr = '<option value="">商品名称</option>';
-            var data = {
-                pageNum: '',
-                page: ''
-            };
-            clientAPI.getGoodsList(data, function (result) {
-                console.log('商品列表 调用成功！');
-                $.each(result, function (i, v) {
-                    optionStr += '<option value="' + v.id + '">' + v.name + '</option>';
-                });
-                oSelect.html(optionStr);
-            });
         },
 
         onSearch: function () {
@@ -44,9 +28,8 @@ define([
                 var oForm = $(".search-bar");
                 var data = {
                     page: 1,
-                    type: oForm.find("input[name=type]").val(),
-                    superMemberid: oForm.find("input[name=level]").val(),
-                    name: oForm.find("input[name=orgName]").val() || ""
+                    startTime: oForm.find("#dateStart").val(),
+                    endTime: oForm.find("#dateEnd").val()
                 };
                 _this.fnGetList(data, true);
             });
@@ -56,22 +39,21 @@ define([
         fnGetList: function (data, initPage) {
             var _this = this;
             var table = $(".data-container table");
-            clientAPI.getCCList(data, function (result) {
-                console.log("获取持仓列表 调用成功!");
-                if (result.list.length == "0") {
+            clientAPI.getCJList(data, function (result) {
+                console.log("获取出金列表 调用成功!");
+                if (!result.list || result.list.length == "0") {
                     table.find("tbody").empty().html("<tr><td colspan='5'>暂无记录</td></tr>");
                     $(".pagination").hide();
                     return false;
                 }
                 var oTr;
-                $.each(result.list, function (i, value) {
-                    var timeTd = '<td>' + value.code_id + '</td>';
-                    var codeTd = '<td>' + value + '</td>';
-                    var goodsNameTd = '<td>' + v.name + '</td>';
-                    var tradeTypeTd = '<td>' + config.tradeType[value.phone] + '</td>';
-                    var amountTd = '<td>' + config.upLevel[value.upLevel] + '</td>';
-                    var clientNameTd = '<td>' + config.upLevel[value.upLevel] + '</td>';
-                    oTr += '<tr class="fadeIn animated">' + timeTd + codeTd + goodsNameTd + tradeTypeTd + amountTd + clientNameTd + '</tr>';
+                $.each(result.list, function (i, v) {
+                    var timeTd = '<td>' + v.handleTime + '</td>';
+                    var codeTd = '<td>' + v.uid + '</td>';
+                    var tradeTypeTd = '<td>' + (v.buy_sell == 1 ? '买入':'卖出') + '</td>';
+                    var amountTd = '<td>' + v.money + '</td>';
+                    var clientNameTd = '<td>' + (v.userInfo ? v.userInfo.nickname : "") + '</td>';
+                    oTr += '<tr class="fadeIn animated">' + timeTd + codeTd + tradeTypeTd + amountTd + clientNameTd + '</tr>';
                 });
                 table.find("tbody").empty().html(oTr);
 

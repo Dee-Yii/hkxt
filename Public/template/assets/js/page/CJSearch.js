@@ -15,27 +15,11 @@ define([
             this.bindEvents();
         },
         render: function () {
-            this.initGoodsList();
             utils.initDatePicker();
             this.fnGetList({},true);
         },
         bindEvents: function () {
             this.onSearch();
-        },
-        initGoodsList: function () {
-            var oSelect = $("select[name=goodsName]");
-            var optionStr = '<option value="">商品名称</option>';
-            var data = {
-                pageNum: '',
-                page: ''
-            };
-            clientAPI.getGoodsList(data, function (result) {
-                console.log('商品列表 调用成功！');
-                $.each(result, function (i, v) {
-                    optionStr += '<option value="' + v.id + '">' + v.name + '</option>';
-                });
-                oSelect.html(optionStr);
-            });
         },
 
         onSearch: function () {
