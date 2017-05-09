@@ -311,7 +311,7 @@ class TradeController extends Controller {
 
 
         $Trades   = M('his_trades_record');
-        print_r($map);exit;
+
         $list = $Trades->where($map)->order('close_position_time desc')->select();//获取分页数据
 
         foreach($list as $key=>$value){

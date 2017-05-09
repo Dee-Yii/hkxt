@@ -15,7 +15,6 @@ class LoginController extends Controller {
       $username = $_POST['uid'];
       $_POST['pass'] = MD5($_POST['pass']);
       $_POST['status'] =0;
-
       $res = M('admin_user')->where($_POST)->find();
 
         if($res){
@@ -49,6 +48,7 @@ class LoginController extends Controller {
              if($res){
                  $a = M('admin_user')->where($map)->save($data);
                  if($a){
+                   session('user',null);
                      $return =array(
                          'code'=>0,
                          'message'=>'修改成功',
