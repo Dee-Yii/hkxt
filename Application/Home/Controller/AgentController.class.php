@@ -16,24 +16,28 @@ class AgentController extends Controller {
       }
     }
     public function getList(){
-      $agent_infoo =M('agent_info');
+      $agent_info =M('agent_info');
       $member_info = M('member_info');
-      if(!empty($_POST['phone'])){
-          $map['phone'] = array('like',"%".$_POST['phone']."%");
-      }
+
       if(!empty($_POST['memberid'])){
           $map['memberid'] = $_POST['memberid'];
       }
       if(!empty($_POST['nickname'])){
         $map['nickname'] = array('like',"%".$_POST['nickname']."%");
       }
+      if(!empty($_POST['cellphone'])){
+        $map['phone'] = array('like',"%".$_POST['phone']."%");
+      }
+
       $pageNum = isset($_POST['pageNum'])?$_POST['pageNum']:5;
       $page = isset($_POST['page'])?$_POST['page']:1;
-       $count = $agent_infoo->where($map)->count();// 查询满足要求的总记录数
-       $list = $agent_infoo->where($map)->page($page,$pageNum)->select();//获取分页数据
+       $count = M('agent_info')->where($map)->count();// 查询满足要求的总记录数
+
+       $list = M('agent_info')->where($map)->page($page,$pageNum)->select();//获取分页数据
+      
        foreach ($list as $key => $value) {
-            $map['memberid'] = $value['memberid'];
-           $MemberInfo = $member_info->where($map)->find();
+            $mmap['memberid'] = $value['memberid'];
+           $MemberInfo = $member_info->where($mmap)->find();
            $list[$key]['memberInfo'] = $MemberInfo;
          }
 
