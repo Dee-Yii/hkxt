@@ -27,8 +27,8 @@ define([
                 var oForm = $(".search-bar");
                 var data = {
                     page: 1,
-                    startTime: oForm.find("#dataStart").val(),
-                    endTime: oForm.find("#dataEnd").val(),
+                    startTime: oForm.find("#dateStart").val(),
+                    endTime: oForm.find("#dateEnd").val(),
                     nickname: oForm.find("[name=nickname]").val(),
                     phoneNum: oForm.find("input[name=phone]").val()
                 };
