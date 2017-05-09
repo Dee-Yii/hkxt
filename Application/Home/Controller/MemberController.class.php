@@ -19,11 +19,21 @@ class MemberController extends Controller {
       $member_info =M('member_info');
       $pageNum = isset($_POST['pageNum'])?$_POST['pageNum']:5;
       $page = isset($_POST['page'])?$_POST['page']:1;
+      $timeStart = date("Y-m-d H:i:s",strtotime($_POST['starTime']));
+      $timeEnd = date("Y-m-d H:i:s",strtotime($_POST['endTime']));
+      if(!empty($_POST['superMemberid'])){
+        $map['superMemberid'] = $_POST['superMemberid'];
+      }
+      if(!empty($_POST['name'])){
+        $map['name'] = array('like',"%".$_POST['name']."%");
+      }
 
+      if(!empty($_POST['start_time']) || !empty($_POST['end_time'])){
+        $map['registerTime'] = array(array('gt',"$timeStart"),array('lt',"$timeEnd")) ;
+      }
        $count = $member_info->where($map)->count();// 查询满足要求的总记录数
        $list = $member_info->where($map)->page($page,$pageNum)->select();//获取分页数据
        foreach ($list as $key => $value) {
-         # code...
          $list[$key]['superMemberInfo'] = "";
          if(!empty($value['superMemberid'])){
            $map['memberid'] = $value['superMemberid'];
@@ -106,7 +116,7 @@ class MemberController extends Controller {
       $data['phone'] = $_POST['phone'];//机构名称
       $map['memberid'] = $_POST['memberid'];
       $res = $member_info->where($map)->save($_POST);
-      
+
       if($res){
         $return =  array(
           'code'=>0,

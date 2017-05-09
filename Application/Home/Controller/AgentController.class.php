@@ -18,7 +18,15 @@ class AgentController extends Controller {
     public function getList(){
       $agent_infoo =M('agent_info');
       $member_info = M('member_info');
-      //dump($user_info);exit;
+      if(!empty($_POST['phone'])){
+          $map['phone'] = array('like',"%".$_POST['phone']."%");
+      }
+      if(!empty($_POST['memberid'])){
+          $map['memberid'] = $_POST['memberid'];
+      }
+      if(!empty($_POST['nickname'])){
+        $map['nickname'] = array('like',"%".$_POST['nickname']."%");
+      }
       $pageNum = isset($_POST['pageNum'])?$_POST['pageNum']:5;
       $page = isset($_POST['page'])?$_POST['page']:1;
        $count = $agent_infoo->where($map)->count();// 查询满足要求的总记录数
