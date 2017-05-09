@@ -20,12 +20,7 @@ class ClientmanageController extends Controller {
     public function clientList(){
         $this->display('clientManage/clientList');
     }
-    public function userManage(){
-      $this->display('accountManage/userManage');
-    }
-    public function brokerManage(){
-      $this->display('accountManage/brokerManage');
-    }
+    
     public function buyLog(){
         $phone= "18657195470";
         $user_info = M('user_info');

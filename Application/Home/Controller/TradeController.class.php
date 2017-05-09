@@ -212,12 +212,12 @@ class TradeController extends Controller {
       $timeend = date("Y-m-d H:i:s",strtotime($_POST['endTime']));
 
       if(!empty($_POST['starTime']) || !empty($_POST['endTime'])){
-        $map['handleTime'] = array(array('gt','$timestart'),arry('lt','timeend')) ;
+        $map['handleTime'] = array(array('gt',"$timestart"),arry('lt',"$timeend")) ;
       }
 
       $Trades   = M('user_withdraw');
       $count = $Trades->where($map)->count();// 查询满足要求的总记录数
-      $list = $Trades->where($map)->order('handleTime ')->page($page,$pageNum)->select();//获取分页数据
+      $list = $Trades->where($map)->order('handleTime')->page($page,$pageNum)->select();//获取分页数据
       $Page       = new \Think\Page($count,$pageNum);// 实例化分页类 传入总记录数和每页显示的记录数(25)
       foreach ($list as $key => $value) {
         # code...
@@ -262,6 +262,11 @@ class TradeController extends Controller {
 
 
     }
+    public function getSum(){
+
+
+
+    }
     public function exceFile(){
       import("Org.Util.PHPExcel");
       import("Org.Util.PHPExcel.Worksheet.Drawing");
@@ -282,12 +287,19 @@ class TradeController extends Controller {
         $objActSheet->setCellValue('D1', '收益');
         $objActSheet->setCellValue('E1', '交易时间');
         //填充数据
-        $Model = new \Think\Model();
-        $res = $Model->query("select t.uid,t.result,t.gross_profit,t.code_id,t.buy_sell,FROM_UNIXTIME(t.close_position_time,'%Y-%m-%d') as date ,(t.result*(t.open_cost*t.amount*(1-t.open_charge))) as result_profit from his_trades_record t LEFT JOIN actuals_goods a   ON a.id = t.code_id ");
+        $pageNum = isset($_GET['pageNum'])?$_GET['pageNum']:5;
+        $page = isset($_GET['page'])?$_GET['page']:1;
+        $timestart = date("Y-m-d H:i:s",strtotime($_POST['starTime']));
+        $timeend = date("Y-m-d H:i:s",strtotime($_POST['endTime']));
+        if(!empty($_POST['startTime']) || !empty($_POST['endTime'])){
+          $map['close_position_time '] = array(array('gt','$timestart'),arry('lt','timeend')) ;
+        }
+        $Trades   = M('his_trades_record');
 
-        foreach($res as $key=>$value){
+        $list = $Trades->where($map)->order('close_position_time desc')->select();//获取分页数据
+
+        foreach($list as $key=>$value){
           $userMap['uid'] = $value['uid'];
-
           $actualMap['id'] = $value['code_id'];
           $userInfo = M('user_info')->where($userMap)->find();
           $actualInfo = M('actuals_goods')->where($actualMap)->find();
@@ -303,7 +315,7 @@ class TradeController extends Controller {
 
 
           $objActSheet->setCellValue('D'.($key+2), $value['result']*$value['gross_profit']);
-          $objActSheet->setCellValue('E'.($key+2), $value['date']);
+          $objActSheet->setCellValue('E'.($key+2), date("Y-m-d H:i:s",$value['close_position_time']));
 
 
         }
